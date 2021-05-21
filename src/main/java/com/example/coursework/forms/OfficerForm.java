@@ -1,11 +1,9 @@
 package com.example.coursework.forms;
 
 import com.example.coursework.model.OfficersRanks;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,21 +13,22 @@ import java.util.Objects;
  * @DateTime: 03.03.2021|16:53
  * @Version: Officars: 1.0
  */
-public class OfficersForm {
+public class OfficerForm {
 
     private String id;
     private String name;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate bDay;
     private String speciality;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfAssignmentOfAnOfficerRank;
     private String awards;
     private OfficersRanks officersRanks;
 
-
-    public OfficersForm() {
+    public OfficerForm() {
     }
 
-    public OfficersForm(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
+    public OfficerForm(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
         this.id = id;
         this.name = name;
         this.bDay = bDay;
@@ -39,7 +38,7 @@ public class OfficersForm {
         this.officersRanks = officersRanks;
     }
 
-    public OfficersForm(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
+    public OfficerForm(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
         this.name = name;
         this.bDay = bDay;
         this.speciality = speciality;
@@ -105,21 +104,8 @@ public class OfficersForm {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OfficersForm officers = (OfficersForm) o;
-        return id.equals(officers.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
     public String toString() {
-        return "Officers{" +
+        return "OfficerForm{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", bDay=" + bDay +

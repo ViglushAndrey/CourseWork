@@ -1,6 +1,8 @@
 package com.example.coursework.controller.rest;
 
 //import edu.adr.course.service.officer.impls.OffiserServiceImpl;
+import com.example.coursework.model.Officers;
+import com.example.coursework.service.Officers.Impls.OfficersServiceImpls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 //import edu.adr.course.model.Officers;
@@ -24,7 +26,7 @@ import java.util.List;
 public class OfficerRestController {
 /*
     @Autowired
-    OffiserServiceImpl service;
+    OfficersServiceImpls service;
 
     @RequestMapping(value = "/get/all")
     public List<Officers> getOfficers() {
@@ -50,8 +52,8 @@ public class OfficerRestController {
     public Officers update(@RequestBody Officers officers){
         return service.update(officers);
     }
-*/
 
+*/
 
 
 

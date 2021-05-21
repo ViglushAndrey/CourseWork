@@ -2,6 +2,7 @@ package com.example.coursework.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,8 +21,10 @@ public class Officers {
     @Id
     private String id;
     private String name;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate bDay;
     private String speciality;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfAssignmentOfAnOfficerRank;
     private String awards;
     private OfficersRanks officersRanks;
@@ -110,12 +113,12 @@ public class Officers {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Officers officers = (Officers) o;
-        return id.equals(officers.id);
+        return getId().equals(officers.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 
     @Override

@@ -1,13 +1,15 @@
 package com.example.coursework.data;
 
 import com.example.coursework.model.*;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FakeDate {
+@Repository
+public class FakeData {
     private List<Officers> officers = new ArrayList<>(
 
             Arrays.asList(
