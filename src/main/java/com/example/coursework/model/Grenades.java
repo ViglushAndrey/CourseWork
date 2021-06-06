@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -17,24 +18,31 @@ import java.util.Objects;
 public class Grenades {
     @Id
     private String id;
+
     private String model;
     private String type;
     private String theRadiusOfTheScatteringOfFragments;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public Grenades() {
     }
 
-    public Grenades(String model, String type, String theRadiusOfTheScatteringOfFragments) {
-        this.model = model;
-        this.type = type;
-        this.theRadiusOfTheScatteringOfFragments = theRadiusOfTheScatteringOfFragments;
-    }
-
-    public Grenades(String id, String model, String type, String theRadiusOfTheScatteringOfFragments) {
+    public Grenades(String id, String model, String type, String theRadiusOfTheScatteringOfFragments, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.model = model;
         this.type = type;
         this.theRadiusOfTheScatteringOfFragments = theRadiusOfTheScatteringOfFragments;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public Grenades(String model, String type, String theRadiusOfTheScatteringOfFragments, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.model = model;
+        this.type = type;
+        this.theRadiusOfTheScatteringOfFragments = theRadiusOfTheScatteringOfFragments;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -69,6 +77,22 @@ public class Grenades {
         this.theRadiusOfTheScatteringOfFragments = theRadiusOfTheScatteringOfFragments;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,6 +113,8 @@ public class Grenades {
                 ", model='" + model + '\'' +
                 ", type='" + type + '\'' +
                 ", theRadiusOfTheScatteringOfFragments='" + theRadiusOfTheScatteringOfFragments + '\'' +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

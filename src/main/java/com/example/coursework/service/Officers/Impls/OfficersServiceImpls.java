@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,11 +41,23 @@ public class OfficersServiceImpls implements OfficersService {
 
     @Override
     public Officers create(Officers officers) {
+
+        String id = String.valueOf(repository.findAll().stream()
+                .mapToInt(el -> Integer.parseInt(el.getId())).max().orElse(0) + 1);
+        officers.setId(id);
+        officers.setCreated_at(LocalDateTime.now());
+
         return repository.save(officers);
     }
 
     @Override
     public Officers update(Officers officers) {
+
+        Officers officers1 = repository.findById(officers.getId()).get();
+
+        officers.setId(officers.getId());
+        officers.setCreated_at(officers1.getCreated_at());
+        officers.setModify_at(LocalDateTime.now());
         return repository.save(officers);
     }
 

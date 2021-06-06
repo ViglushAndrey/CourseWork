@@ -2,6 +2,7 @@ package com.example.coursework.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,25 +21,20 @@ public class Ordinarys {
     @Id
     private String id;
     private String name;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate bDay;
     private String speciality;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfAssignmentOfAnOfficerRank;
     private String awards;
     private OrdinaryRanks ordinaryRanks;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public Ordinarys() {
     }
 
-    public Ordinarys(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OrdinaryRanks ordinaryRanks) {
-        this.name = name;
-        this.bDay = bDay;
-        this.speciality = speciality;
-        this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
-        this.awards = awards;
-        this.ordinaryRanks = ordinaryRanks;
-    }
-
-    public Ordinarys(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OrdinaryRanks ordinaryRanks) {
+    public Ordinarys(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OrdinaryRanks ordinaryRanks, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.name = name;
         this.bDay = bDay;
@@ -46,6 +42,19 @@ public class Ordinarys {
         this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
         this.awards = awards;
         this.ordinaryRanks = ordinaryRanks;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public Ordinarys(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OrdinaryRanks ordinaryRanks, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.name = name;
+        this.bDay = bDay;
+        this.speciality = speciality;
+        this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
+        this.awards = awards;
+        this.ordinaryRanks = ordinaryRanks;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -102,6 +111,22 @@ public class Ordinarys {
 
     public void setOrdinaryRanks(OrdinaryRanks ordinaryRanks) {
         this.ordinaryRanks = ordinaryRanks;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
     }
 
     @Override

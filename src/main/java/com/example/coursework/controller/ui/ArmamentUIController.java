@@ -1,5 +1,5 @@
 package com.example.coursework.controller.ui;
-
+/*
 import com.example.coursework.forms.ArmamentForm;
 import com.example.coursework.forms.OfficerForm;
 import com.example.coursework.model.*;
@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-/*
+
 @RequestMapping(value = "/ui/Armament")
 @Controller
 public class ArmamentUIController {
@@ -74,22 +74,39 @@ public class ArmamentUIController {
                 .collect(Collectors.toMap(Pistols::getId, Pistols::getModel));
         model.addAttribute("mavsP", mavsP);
 
-        Map<String,String> mavsSR = sniperRiflesService
+        Map<String,String> mavsSR = sniperRiflesService.getAll().stream()
+                .collect(Collectors.toMap(SniperRifles::getId, SniperRifles::getModel));
+        model.addAttribute("mavsSR", mavsSR);
+
+        Map<String,String> mavsMG = machinesGunsService.getAll().stream()
+                .collect(Collectors.toMap(MachinesGuns::getId, MachinesGuns::getModel));
+        model.addAttribute("mavsMG", mavsMG);
 
         Map<String, String> mavs = automatsService.getAll().stream()
                 .collect(Collectors.toMap(Automats::getId, Automats::getModel));
         model.addAttribute("mavs", mavs);
 
+        Map<String,Integer> mavsME = militaryEquipmentService.getAll().stream()
+                .collect(Collectors.toMap(MilitaryEquipment::getId, MilitaryEquipment::getTotalMilitaryEquipment));
+        model.addAttribute("mavsME", mavsME);
+
+        Map<String,Integer> mavsTE = transportEquipmentService.getAll().stream()
+                .collect(Collectors.toMap(TransportEquipment::getId, TransportEquipment::getTotalTransportEquipment));
+        model.addAttribute("mavsTE", mavsTE);
+
         model.addAttribute("form", armamentForm);
         return "armament/armament-create";
     }
     @PostMapping(value = "create")
-    public String create( @ModelAttribute("officerForm") OfficerForm officerForm){
-        Armament armament = new Armament();
-        armament.setGrenades();
-        service.create(officer);
+    public String create(Model model, @ModelAttribute("armamentForm") ArmamentForm armamentForm){
+        Armament armament = new Armament(armamentForm.getId(), armamentForm.getGrenades()
+                , armamentForm.getPistols(), armamentForm.getSniperRifles(), armamentForm.getMachinesGuns()
+        , armamentForm.getAutomats(), armamentForm.getMilitaryEquipment(), armamentForm.getTransportEquipment());
+
+        service.create(armament);
+        model.addAttribute("armament", service.getAll());
         return "redirect:/ui/Armament/get/all";
-    }
+    }*/
     /*
     @GetMapping(value = "appdate")
     public String appdate(Model model){

@@ -4,6 +4,7 @@ import com.example.coursework.model.OfficersRanks;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,27 +25,10 @@ public class OfficerForm {
     private LocalDate dateOfAssignmentOfAnOfficerRank;
     private String awards;
     private OfficersRanks officersRanks;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public OfficerForm() {
-    }
-
-    public OfficerForm(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
-        this.id = id;
-        this.name = name;
-        this.bDay = bDay;
-        this.speciality = speciality;
-        this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
-        this.awards = awards;
-        this.officersRanks = officersRanks;
-    }
-
-    public OfficerForm(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
-        this.name = name;
-        this.bDay = bDay;
-        this.speciality = speciality;
-        this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
-        this.awards = awards;
-        this.officersRanks = officersRanks;
     }
 
     public String getId() {
@@ -103,6 +87,22 @@ public class OfficerForm {
         this.officersRanks = officersRanks;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public String toString() {
         return "OfficerForm{" +
@@ -113,6 +113,8 @@ public class OfficerForm {
                 ", dateOfAssignmentOfAnOfficerRank=" + dateOfAssignmentOfAnOfficerRank +
                 ", awards='" + awards + '\'' +
                 ", officersRanks=" + officersRanks +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

@@ -28,12 +28,14 @@ public class Officers {
     private LocalDate dateOfAssignmentOfAnOfficerRank;
     private String awards;
     private OfficersRanks officersRanks;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
 
     public Officers() {
     }
 
-    public Officers(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
+    public Officers(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.name = name;
         this.bDay = bDay;
@@ -41,15 +43,19 @@ public class Officers {
         this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
         this.awards = awards;
         this.officersRanks = officersRanks;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
-    public Officers(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks) {
+    public Officers(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, OfficersRanks officersRanks, LocalDateTime created_at, LocalDateTime modify_at) {
         this.name = name;
         this.bDay = bDay;
         this.speciality = speciality;
         this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
         this.awards = awards;
         this.officersRanks = officersRanks;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -108,6 +114,22 @@ public class Officers {
         this.officersRanks = officersRanks;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -131,6 +153,8 @@ public class Officers {
                 ", dateOfAssignmentOfAnOfficerRank=" + dateOfAssignmentOfAnOfficerRank +
                 ", awards='" + awards + '\'' +
                 ", officersRanks=" + officersRanks +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

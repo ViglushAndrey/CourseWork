@@ -3,7 +3,7 @@
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Create Officer</title>
+    <title>Edit Officer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       fieldset{

@@ -2,7 +2,9 @@ package com.example.coursework.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -18,23 +20,42 @@ import java.util.Objects;
 public class Generals {
     @Id
     private String id;
+
     private String name;
-    private LocalDateTime bDay;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate bDay;
     private String speciality;
-    private LocalDateTime dateOfAssignmentOfAnOfficerRank;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateOfAssignmentOfAnOfficerRank;
     private String awards;
     private GeneralsRanks generalsRanks;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public Generals() {
     }
 
-    public Generals(String id, String name, LocalDateTime bDay, String speciality, LocalDateTime dateOfAssignmentOfAnOfficerRank, String awards) {
+    public Generals(String id, String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, GeneralsRanks generalsRanks, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.name = name;
         this.bDay = bDay;
         this.speciality = speciality;
         this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
         this.awards = awards;
+        this.generalsRanks = generalsRanks;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public Generals(String name, LocalDate bDay, String speciality, LocalDate dateOfAssignmentOfAnOfficerRank, String awards, GeneralsRanks generalsRanks, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.name = name;
+        this.bDay = bDay;
+        this.speciality = speciality;
+        this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
+        this.awards = awards;
+        this.generalsRanks = generalsRanks;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -53,11 +74,11 @@ public class Generals {
         this.name = name;
     }
 
-    public LocalDateTime getbDay() {
+    public LocalDate getbDay() {
         return bDay;
     }
 
-    public void setbDay(LocalDateTime bDay) {
+    public void setbDay(LocalDate bDay) {
         this.bDay = bDay;
     }
 
@@ -69,11 +90,11 @@ public class Generals {
         this.speciality = speciality;
     }
 
-    public LocalDateTime getDateOfAssignmentOfAnOfficerRank() {
+    public LocalDate getDateOfAssignmentOfAnOfficerRank() {
         return dateOfAssignmentOfAnOfficerRank;
     }
 
-    public void setDateOfAssignmentOfAnOfficerRank(LocalDateTime dateOfAssignmentOfAnOfficerRank) {
+    public void setDateOfAssignmentOfAnOfficerRank(LocalDate dateOfAssignmentOfAnOfficerRank) {
         this.dateOfAssignmentOfAnOfficerRank = dateOfAssignmentOfAnOfficerRank;
     }
 
@@ -85,17 +106,41 @@ public class Generals {
         this.awards = awards;
     }
 
+    public GeneralsRanks getGeneralsRanks() {
+        return generalsRanks;
+    }
+
+    public void setGeneralsRanks(GeneralsRanks generalsRanks) {
+        this.generalsRanks = generalsRanks;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Generals generals = (Generals) o;
-        return id.equals(generals.id);
+        return getId().equals(generals.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 
     @Override
@@ -107,6 +152,9 @@ public class Generals {
                 ", speciality='" + speciality + '\'' +
                 ", dateOfAssignmentOfAnOfficerRank=" + dateOfAssignmentOfAnOfficerRank +
                 ", awards='" + awards + '\'' +
+                ", generalsRanks=" + generalsRanks +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

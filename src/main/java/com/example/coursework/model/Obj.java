@@ -3,7 +3,9 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,16 +19,24 @@ import java.util.List;
 public class Obj {
     @Id
     private String id;
-    private List<String> typesOfBuildings;
-
+    private String typesOfBuildings;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public Obj() {
     }
 
-    public Obj(String id, List<String> typesOfBuildings) {
+    public Obj(String id, String typesOfBuildings, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.typesOfBuildings = typesOfBuildings;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
 
+    public Obj(String typesOfBuildings, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.typesOfBuildings = typesOfBuildings;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -37,33 +47,50 @@ public class Obj {
         this.id = id;
     }
 
-    public List<String> getTypesOfBuildings() {
+    public String getTypesOfBuildings() {
         return typesOfBuildings;
     }
 
-    public void setTypesOfBuildings(List<String> typesOfBuildings) {
+    public void setTypesOfBuildings(String typesOfBuildings) {
         this.typesOfBuildings = typesOfBuildings;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Obj obj = (Obj) o;
-        return id.equals(obj.id);
+        return getId().equals(obj.getId());
     }
 
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(id);
+        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
-        return "Objects{" +
+        return "Obj{" +
                 "id='" + id + '\'' +
-                ", vudObject='" + typesOfBuildings + '\'' +
+                ", typesOfBuildings=" + typesOfBuildings +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

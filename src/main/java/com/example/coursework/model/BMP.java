@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -18,26 +19,32 @@ public class BMP {
     @Id
     private String id;
     private String name;
-    private int osoboviySklad;
+    private int personnel;
     private String armament;
     private String combatWeight;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public BMP() {
     }
 
-    public BMP(String name, int osoboviySklad, String armament, String combatWeight) {
-        this.name = name;
-        this.osoboviySklad = osoboviySklad;
-        this.armament = armament;
-        this.combatWeight = combatWeight;
-    }
-
-    public BMP(String id, String name, int osoboviySklad, String armament, String combatWeight) {
+    public BMP(String id, String name, int personnel, String armament, String combatWeight, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.name = name;
-        this.osoboviySklad = osoboviySklad;
+        this.personnel = personnel;
         this.armament = armament;
         this.combatWeight = combatWeight;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public BMP(String name, int personnel, String armament, String combatWeight, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.name = name;
+        this.personnel = personnel;
+        this.armament = armament;
+        this.combatWeight = combatWeight;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -56,12 +63,12 @@ public class BMP {
         this.name = name;
     }
 
-    public int getOsoboviySklad() {
-        return osoboviySklad;
+    public int getPersonnel() {
+        return personnel;
     }
 
-    public void setOsoboviySklad(int osoboviySklad) {
-        this.osoboviySklad = osoboviySklad;
+    public void setPersonnel(int personnel) {
+        this.personnel = personnel;
     }
 
     public String getArmament() {
@@ -78,6 +85,22 @@ public class BMP {
 
     public void setCombatWeight(String combatWeight) {
         this.combatWeight = combatWeight;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
     }
 
     @Override
@@ -98,9 +121,11 @@ public class BMP {
         return "BMP{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", osoboviySklad='" + osoboviySklad + '\'' +
-                ", artSystem='" + armament + '\'' +
+                ", osoboviySklad=" + personnel +
+                ", armament='" + armament + '\'' +
                 ", combatWeight='" + combatWeight + '\'' +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

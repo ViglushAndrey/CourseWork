@@ -10,4 +10,9 @@ package com.example.coursework.model;
  */
 public enum GeneralsRanks {
 
-}
+    Генерал,
+    Генерал_лейтенант,
+    Генерал_майор,
+    Бригадний_генерал
+
+    }

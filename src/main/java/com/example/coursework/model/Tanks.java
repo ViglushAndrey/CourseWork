@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -18,23 +19,41 @@ public class Tanks {
     @Id
     private String id;
     private String name;
+    private int personnel;
     private double combatWeight;
     private String enginePower;
     private String engineType;
-    private int caliberOfGun;
     private String gunModel;
+    private int caliberOfGun;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public Tanks() {
     }
 
-    public Tanks(String id, String name, double combatWeight, String enginePower, String engineType, int caliberOfGun, String gunModel) {
+    public Tanks(String id, String name, int personnel, double combatWeight, String enginePower, String engineType, int caliberOfGun, String gunModel, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.name = name;
+        this.personnel = personnel;
         this.combatWeight = combatWeight;
         this.enginePower = enginePower;
         this.engineType = engineType;
         this.caliberOfGun = caliberOfGun;
         this.gunModel = gunModel;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public Tanks(String name, int personnel, double combatWeight, String enginePower, String engineType, int caliberOfGun, String gunModel, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.name = name;
+        this.personnel = personnel;
+        this.combatWeight = combatWeight;
+        this.enginePower = enginePower;
+        this.engineType = engineType;
+        this.caliberOfGun = caliberOfGun;
+        this.gunModel = gunModel;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -51,6 +70,14 @@ public class Tanks {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPersonnel() {
+        return personnel;
+    }
+
+    public void setPersonnel(int personnel) {
+        this.personnel = personnel;
     }
 
     public double getCombatWeight() {
@@ -93,6 +120,22 @@ public class Tanks {
         this.gunModel = gunModel;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,11 +154,13 @@ public class Tanks {
         return "Tanks{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", combatWeight='" + combatWeight + '\'' +
+                ", combatWeight=" + combatWeight +
                 ", enginePower='" + enginePower + '\'' +
                 ", engineType='" + engineType + '\'' +
                 ", caliberOfGun=" + caliberOfGun +
                 ", gunModel='" + gunModel + '\'' +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

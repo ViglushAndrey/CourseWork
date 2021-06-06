@@ -4,6 +4,7 @@ import com.example.coursework.model.*;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,10 +15,10 @@ public class FakeData {
 
             Arrays.asList(
 
-                    new Officers("1", "Jhon Lenon", LocalDate.of(2000, 10, 1), "Sapper", LocalDate.of(2010, 2, 2), "wefwaefgawfawfdwaf", OfficersRanks.Майор),
-                    new Officers("2", "Sergey Viglush", LocalDate.of(1972, 8, 17), "Signalman", LocalDate.of(2005, 6, 10), "wefwaefgawfawegergfegferferffdwaf", OfficersRanks.Майор),
-                    new Officers("3", "Jhon Manon", LocalDate.of(1988, 12, 15), "Tankman", LocalDate.of(2010, 12, 25), "wefwgtfgfszvzsv, fgrsdfvsdvsdzv", OfficersRanks.Полковник),
-                    new Officers("4", "Alon Mercury", LocalDate.of(1966, 10, 1), "Saper", LocalDate.of(2000, 5, 2), "wefwaefgawfawfdwвацфвцвцвуфвфввфцaf", OfficersRanks.Підполковник)
+                    new Officers("1", "Jhon Lenon", LocalDate.of(2000, 10, 1), "Sapper", LocalDate.of(2010, 2, 2), "wefwaefgawfawfdwaf", OfficersRanks.Майор, LocalDateTime.now(),null),
+                    new Officers("2", "Sergey Viglush", LocalDate.of(1972, 8, 17), "Signalman", LocalDate.of(2005, 6, 10), "wefwaefgawfawegergfegferferffdwaf", OfficersRanks.Майор,LocalDateTime.now(),null),
+                    new Officers("3", "Jhon Manon", LocalDate.of(1988, 12, 15), "Tankman", LocalDate.of(2010, 12, 25), "wefwgtfgfszvzsv, fgrsdfvsdvsdzv", OfficersRanks.Полковник,LocalDateTime.now(),null),
+                    new Officers("4", "Alon Mercury", LocalDate.of(1966, 10, 1), "Saper", LocalDate.of(2000, 5, 2), "wefwaefgawfawfdwвацфвцвцвуфвфввфцaf", OfficersRanks.Підполковник,LocalDateTime.now(),null)
 
 
 
@@ -28,10 +29,10 @@ public class FakeData {
 
     private List<TemporaryDislocation> temporaryDislocations = new ArrayList<>(
             Arrays.asList(
-                    new TemporaryDislocation( "1", "Полігон", "Чернівці","вулиця Московської Олімпіади, 6"),
-                    new TemporaryDislocation( "2", "Полігон", "с. Ропча Сторожинецького району",""),
-                    new TemporaryDislocation( "3", "Полігон", "Сторожинець","вулиця Антона Чехова"),
-                    new TemporaryDislocation( "4", "Полігон", "Чернівці","вулиця Московської Олімпіади,33")
+                    new TemporaryDislocation( "1", "Полігон", "Чернівці","вулиця Московської Олімпіади, 6",LocalDateTime.now(),null),
+                    new TemporaryDislocation( "2", "Полігон", "с. Ропча Сторожинецького району","",LocalDateTime.now(),null),
+                    new TemporaryDislocation( "3", "Полігон", "Сторожинець","вулиця Антона Чехова",LocalDateTime.now(),null),
+                    new TemporaryDislocation( "4", "Полігон", "Чернівці","вулиця Московської Олімпіади,33",LocalDateTime.now(),null)
             )
     );
     private List<PermanentDislocation> permanentDislocations = new ArrayList<>(
@@ -45,27 +46,27 @@ public class FakeData {
 
     private List<Obj> obj = new ArrayList<>(
             Arrays.asList(
-                    new Obj("1", new ArrayList<>(Arrays.asList("Склади, Командний ценр, Казарма, Гаражі, Караул, КПП, Їдальня")))
+                    new Obj("1", "Склади, Командний ценр, Казарма, Гаражі, Караул, КПП, Їдальня",LocalDateTime.now(),null)
             )
     );
 
 
     private List<Grenades> grenades = new ArrayList<>(
             Arrays.asList(
-                    new Grenades("1","РГТ-27С","термобарическая ручная граната","нету"),
-                    new Grenades("2","РГ-14","ручна осколкова граната","15м"),
-                    new Grenades("3","РГД-33","ручна осколкова граната","25м"),
-                    new Grenades("4","РГ-41","ручна осколкова граната","20м"),
-                    new Grenades("5","РГД-5","ручна осколкова граната","25м")
+                    new Grenades("1","РГТ-27С","термобарическая ручная граната","нету",LocalDateTime.now(),null),
+                    new Grenades("2","РГ-14","ручна осколкова граната","15м",LocalDateTime.now(),null),
+                    new Grenades("3","РГД-33","ручна осколкова граната","25м",LocalDateTime.now(),null),
+                    new Grenades("4","РГ-41","ручна осколкова граната","20м",LocalDateTime.now(),null),
+                    new Grenades("5","РГД-5","ручна осколкова граната","25м",LocalDateTime.now(),null)
             )
     );
     private List<Pistols> pistols = new ArrayList<>(
             Arrays.asList(
-                    new Pistols("1","FN Five-seven","5.7x28",20),
-                    new Pistols("2","HK45 Tactical",".45 ACP",10),
-                    new Pistols("3","M11","9мм",15),
-                    new Pistols("4","Glock 17","9мм",17),
-                    new Pistols("5","Roberts Defense",".45 ACP",8)
+                    new Pistols("1","FN Five-seven","5.7x28",20,LocalDateTime.now(),null),
+                    new Pistols("2","HK45 Tactical",".45 ACP",10,LocalDateTime.now(),null),
+                    new Pistols("3","M11","9мм",15,LocalDateTime.now(),null),
+                    new Pistols("4","Glock 17","9мм",17,LocalDateTime.now(),null),
+                    new Pistols("5","Roberts Defense",".45 ACP",8,LocalDateTime.now(),null)
             )
     );
     private List<SniperRifles> sniperRifles = new ArrayList<>(
@@ -95,27 +96,27 @@ public class FakeData {
     );
     private List<Tanks> tanks = new ArrayList<>(
             Arrays.asList(
-                    new Tanks("1","T-84-120 «Ятаган»",48.0,"6ТД-21200 к. с.","багатопаливний дизель",130,"КБМ-2 (гладкожерлова)"),
-                    new Tanks("2","Т-64Е",42.7,"850 к.с.","5ТДФЕ",125,"КБА-4"),
-                    new Tanks("3","Т-64БВ",42.4,"700 к.с.","5ТДФЕ",125,"2А46М-1"),
-                    new Tanks("4","Т-84У «Оплот»",48.0,"850 к.с.","5ТДФМ",125,"КБА-8")
+                    new Tanks("1","T-84-120 «Ятаган»",3,48.0,"6ТД-21200 к. с.","багатопаливний дизель",130,"КБМ-2 (гладкожерлова)",LocalDateTime.now(),null),
+                    new Tanks("2","Т-64Е",3,42.7,"850 к.с.","5ТДФЕ",125,"КБА-4",LocalDateTime.now(),null),
+                    new Tanks("3","Т-64БВ",3,42.4,"700 к.с.","5ТДФЕ",125,"2А46М-1",LocalDateTime.now(),null),
+                    new Tanks("4","Т-84У «Оплот»",3,48.0,"850 к.с.","5ТДФМ",125,"КБА-8",LocalDateTime.now(),null)
 
             )
     );
     private List<BMP> bmp = new ArrayList<>(
             Arrays.asList(
-                    new BMP("1","БМП-2",10,"30-мм 2А42 нарезная малокалиберная автоматическая пушка","15т."),
-                    new BMP("2","Мардер (БМП)",10,"1 × 20-мм Mk20 DM5 Rh202 нарезная, автоматическая пушка","30т."),
-                    new BMP("3","Пума (БМП)",9,"30-мм МК 30-2/АВМ нарезная, автоматическая пушка","43т."),
-                    new BMP("4","Strf 90",11,"40-мм «Бофорс» L70 нарезная, автоматическая пушка","29т.")
+                    new BMP("1","БМП-2",10,"30-мм 2А42 нарезная малокалиберная автоматическая пушка","15т.",LocalDateTime.now(),null),
+                    new BMP("2","Мардер (БМП)",10,"1 × 20-мм Mk20 DM5 Rh202 нарезная, автоматическая пушка","30т.",LocalDateTime.now(),null),
+                    new BMP("3","Пума (БМП)",9,"30-мм МК 30-2/АВМ нарезная, автоматическая пушка","43т.",LocalDateTime.now(),null),
+                    new BMP("4","Strf 90",11,"40-мм «Бофорс» L70 нарезная, автоматическая пушка","29т.",LocalDateTime.now(),null)
             )
     );
     private List<BTR> btr = new ArrayList<>(
             Arrays.asList(
-                    new BTR("1","EFV",20,"Плавающий бронетранспортёр", "1 x 30-мм пушка MK44 Bushmaster II","35т."),
-                    new BTR("2","БТР-50П",22,"Бронетранспортёр", "1 × 7,62-мм пулемёт СГМБ (позже ПКМБ)","14т."),
-                    new BTR("3","БТР Фухс",12,"Бронетранспортёр", "Три 7,62-мм MG-3","18т."),
-                    new BTR("4","Ахзарит",10,"Тяжёлый гусеничный бронетранспортёр", "пулеметы 4 × 7,62-мм","44т.")
+                    new BTR("1","EFV",20,"Плавающий бронетранспортёр", "1 x 30-мм пушка MK44 Bushmaster II","35т.",LocalDateTime.now(),null),
+                    new BTR("2","БТР-50П",22,"Бронетранспортёр", "1 × 7,62-мм пулемёт СГМБ (позже ПКМБ)","14т.",LocalDateTime.now(),null),
+                    new BTR("3","БТР Фухс",12,"Бронетранспортёр", "Три 7,62-мм MG-3","18т.",LocalDateTime.now(),null),
+                    new BTR("4","Ахзарит",10,"Тяжёлый гусеничный бронетранспортёр", "пулеметы 4 × 7,62-мм","44т.",LocalDateTime.now(),null)
             )
     );
 
@@ -136,9 +137,9 @@ public class FakeData {
     );
     private List<Tractor> tractors = new ArrayList<>(
             Arrays.asList(
-                    new Tractor("1", "МАЗ-537", 21.6, 55, "90т.", "Седельно-сцепное устройство под шкворень 100 мм"),
-                    new Tractor("2", "КрАЗ-7634", 41, 25, "27т.", "Тяжёлый специальный четырехосный бескапотный автомобиль-шасси повышенной проходимости с компоновочной схемой «кабина перед двигателем», монтажной длиной рамы 8080 мм"),
-                    new Tractor("3", "МАЗ-7410", 39.9, 65, "22.2т.", "Полноприводный четырёхосный (8х8) тяжёлый колёсный грузовой автомобиль")
+                    new Tractor("1", "МАЗ-537", 21.6, 55, "90т.", "Седельно-сцепное устройство под шкворень 100 мм",LocalDateTime.now(),null),
+                    new Tractor("2", "КрАЗ-7634", 41, 25, "27т.", "Тяжёлый специальный четырехосный бескапотный автомобиль-шасси повышенной проходимости с компоновочной схемой «кабина перед двигателем», монтажной длиной рамы 8080 мм",LocalDateTime.now(),null),
+                    new Tractor("3", "МАЗ-7410", 39.9, 65, "22.2т.", "Полноприводный четырёхосный (8х8) тяжёлый колёсный грузовой автомобиль",LocalDateTime.now(),null)
             )
     );
 
@@ -164,23 +165,32 @@ public class FakeData {
 
     private  List<Serguants> serguants = new ArrayList<>(
             Arrays.asList(
-                    new Serguants("1", "Jhon Logon", LocalDate.of(1990, 10, 1), "Sapper", LocalDate.of(2010, 5, 2), "wefwaefgawfawfdwaf", SerguantsRanks.Сержант),
-                    new Serguants("2", "Markus Korol", LocalDate.of(1980, 5, 12), "Tankman", LocalDate.of(2012, 10, 5), "wefwaefgawfawfdwafwdfwfwfafa", SerguantsRanks.ГоловнийСержант),
-                    new Serguants("3", "Lana Maring", LocalDate.of(1990, 8, 1), "Signalman", LocalDate.of(2009, 9, 30), "wefwaefgawfawfdwafwafwfwfwafwafwafwa", SerguantsRanks.СтаршийСержант)
+                    new Serguants("1", "Jhon Logon", LocalDate.of(1990, 10, 1), "Sapper", LocalDate.of(2010, 5, 2), "wefwaefgawfawfdwaf", SerguantsRanks.Сержант,LocalDateTime.now(),null),
+                    new Serguants("2", "Markus Korol", LocalDate.of(1980, 5, 12), "Tankman", LocalDate.of(2012, 10, 5), "wefwaefgawfawfdwafwdfwfwfafa", SerguantsRanks.ГоловнийСержант,LocalDateTime.now(),null),
+                    new Serguants("3", "Lana Maring", LocalDate.of(1990, 8, 1), "Signalman", LocalDate.of(2009, 9, 30), "wefwaefgawfawfdwafwafwfwfwafwafwafwa", SerguantsRanks.СтаршийСержант,LocalDateTime.now(),null)
             )
     );
 
     private  List<Ordinarys> ordinarys = new ArrayList<>(
             Arrays.asList(
-                    new Ordinarys("1", "Andrey Orcus", LocalDate.of(2001, 12, 12), "Sniper", LocalDate.of(2020, 5, 2), "wefwaefgawfawfdwafwafawfwaf", OrdinaryRanks.Солдат),
-                    new Ordinarys("2", "Maks Vinlas", LocalDate.of(1998, 5, 1), "Sapper", LocalDate.of(2020, 10, 1), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат),
-                    new Ordinarys("3", "Aaron Anstey", LocalDate.of(1999, 2, 5), "Sapper", LocalDate.of(2020, 3, 22), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.Солдат),
-                    new Ordinarys("4", "Alwin Baiss", LocalDate.of(1990, 9, 3), "Sapper", LocalDate.of(2018, 1, 20), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат),
-                    new Ordinarys("5", "Maks Ball", LocalDate.of(1998, 12, 1), "Sapper", LocalDate.of(2020, 6, 6), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.Солдат),
-                    new Ordinarys("6", "Maks Clowney", LocalDate.of(1989, 11, 18), "Sapper", LocalDate.of(2017, 4, 24), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат),
-                    new Ordinarys("7", "Elizabeth Crofford", LocalDate.of(2000, 12, 22), "Sapper", LocalDate.of(2020, 6, 30), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат),
-                    new Ordinarys("8", "Erik Catchpole", LocalDate.of(1995, 10, 1), "Sapper", LocalDate.of(2020, 9, 9), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.Солдат),
-                    new Ordinarys("9", "Dominic Gerard", LocalDate.of(1997, 7, 7), "Sapper", LocalDate.of(2020, 8, 4), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат)
+                    new Ordinarys("1", "Andrey Orcus", LocalDate.of(2001, 12, 12), "Sniper", LocalDate.of(2020, 5, 2), "wefwaefgawfawfdwafwafawfwaf", OrdinaryRanks.Солдат,LocalDateTime.now(),null),
+                    new Ordinarys("2", "Maks Vinlas", LocalDate.of(1998, 5, 1), "Tankman", LocalDate.of(2020, 10, 1), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат,LocalDateTime.now(),null),
+                    new Ordinarys("3", "Aaron Anstey", LocalDate.of(1999, 2, 5), "Sapper", LocalDate.of(2020, 3, 22), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.Солдат,LocalDateTime.now(),null),
+                    new Ordinarys("4", "Alwin Baiss", LocalDate.of(1990, 9, 3), "Tankman", LocalDate.of(2018, 1, 20), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат,LocalDateTime.now(),null),
+                    new Ordinarys("5", "Maks Ball", LocalDate.of(1998, 12, 1), "Sapper", LocalDate.of(2020, 6, 6), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.Солдат,LocalDateTime.now(),null),
+                    new Ordinarys("6", "Maks Clowney", LocalDate.of(1989, 11, 18), "Signalman", LocalDate.of(2017, 4, 24), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат,LocalDateTime.now(),null),
+                    new Ordinarys("7", "Elizabeth Crofford", LocalDate.of(2000, 12, 22), "Sapper", LocalDate.of(2020, 6, 30), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат,LocalDateTime.now(),null),
+                    new Ordinarys("8", "Erik Catchpole", LocalDate.of(1995, 10, 1), "Sniper", LocalDate.of(2020, 9, 9), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.Солдат,LocalDateTime.now(),null),
+                    new Ordinarys("9", "Dominic Gerard", LocalDate.of(1997, 7, 7), "Signalman", LocalDate.of(2020, 8, 4), "wefwaefgawfawfdwafwfafwfwafwafwaf", OrdinaryRanks.СтаршийСолдат,LocalDateTime.now(),null)
+            )
+    );
+
+    private List<Generals> generals = new ArrayList<>(
+            Arrays.asList(
+                    new Generals("1","Verla Mraz",LocalDate.of(1966,1,15),"Tankman",LocalDate.of(2010,5,20),"fwfwfwfwfwffwf",GeneralsRanks.Бригадний_генерал,LocalDateTime.now(),null),
+                    new Generals("2","Dusty Kovacek",LocalDate.of(1960,10,30),"Sapper",LocalDate.of(2015,12,10),"fwfwfwfwfwffthdrthrdhwf",GeneralsRanks.Генерал_лейтенант,LocalDateTime.now(),null),
+                    new Generals("3","Lynn Schuppe",LocalDate.of(1959,9,7),"Sniper",LocalDate.of(2018,8,29),"fwfwfwfwfwghnnghntnffwf",GeneralsRanks.Генерал_майор,LocalDateTime.now(),null),
+                    new Generals("4","Favian Nitzsche",LocalDate.of(1958,11,25),"Signalman",LocalDate.of(2020,10,12),"fwfwfwfwfwftyjjhtfnjk,ikfwf",GeneralsRanks.Генерал,LocalDateTime.now(),null)
             )
     );
 
@@ -216,7 +226,13 @@ public class FakeData {
 
     );
 
+    public List<Generals> getGenerals() {
+        return generals;
+    }
 
+    public void setGenerals(List<Generals> generals) {
+        this.generals = generals;
+    }
 
     public List<Officers> getOfficers() {
         return officers;

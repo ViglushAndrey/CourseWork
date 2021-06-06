@@ -2,12 +2,14 @@ package com.example.coursework.service.Grenades.Impls;
 
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.Grenades;
+import com.example.coursework.model.Officers;
 import com.example.coursework.repository.Grenades.GrenadesRepository;
 import com.example.coursework.service.Grenades.Interfaces.GrenadesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +22,13 @@ public class GrenadesServiceImpls implements GrenadesService {
     @Autowired
     FakeData data;
 
-    static List<Grenades> grenades = new ArrayList<>();
+    static List<Grenades> grenadess = new ArrayList<>();
 
     @PostConstruct
     void init(){
         repository.deleteAll();
-        grenades = data.getGrenades();
-        repository.saveAll(grenades);
+        grenadess = data.getGrenades();
+        repository.saveAll(grenadess);
     }
 
     @Override
@@ -36,12 +38,23 @@ public class GrenadesServiceImpls implements GrenadesService {
 
     @Override
     public Grenades create(Grenades grenades) {
+        String id = String.valueOf(repository.findAll().stream()
+                .mapToInt(el -> Integer.parseInt(el.getId())).max().orElse(0) + 1);
+        grenades.setId(id);
+        grenades.setCreated_at(LocalDateTime.now());
         return repository.save(grenades);
     }
 
     @Override
     public Grenades update(Grenades grenades) {
+
+        Grenades grenades1 = repository.findById(grenades.getId()).get();
+
+        grenades.setId(grenades.getId());
+        grenades.setCreated_at(grenades1.getCreated_at());
+        grenades.setModify_at(LocalDateTime.now());
         return repository.save(grenades);
+
     }
 
     @Override
