@@ -46,6 +46,31 @@
     <a class="btn btn-access; btn btn-outline-dark" href="/ui/PermanentDis/create">Create</a>
 </div>
 
+<br>
+<br>
+
+<div style="margin: 0 auto; width: 100%">
+    <table class="table table-dark table-hover">
+
+        <tr>
+            <th>ЗАПИТИ</th>
+        </tr>
+
+        <tr>
+            <td>Всі можливі місця постійної дислокації</td>
+            <td>
+                <a href="/operations6/get/all">
+                    <button class="btn btn-light btn-sm">Перейти</button>
+                </a>
+            </td>
+        </tr>
+
+
+
+
+
+    </table>
+</div>
 
 </body>
 </html>

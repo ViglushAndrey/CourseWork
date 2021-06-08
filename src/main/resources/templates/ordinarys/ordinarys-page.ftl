@@ -52,6 +52,36 @@
     <a class="btn btn-access; btn btn-outline-dark" href="/ui/Ordinarys/create">Create</a>
 </div>
 
+<br>
+<br>
+
+<div style="margin: 0 auto; width: 100%">
+    <table class="table table-dark table-hover">
+
+        <tr>
+            <th>ЗАПИТИ</th>
+        </tr>
+
+        <tr>
+            <td>Загальний рядовий склад</td>
+            <td>
+                <a href="/operations2/get/all">
+                    <button class="btn btn-light btn-sm">Перейти</button>
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Рядовий склад по заданому званню</td>
+            <td>
+                <a href="/operations2/get/all/ordinaryrank">
+                    <button class="btn btn-light btn-sm">Перейти</button>
+                </a>
+            </td>
+        </tr>
+
+    </table>
+</div>
 
 </body>
 </html>

@@ -24,7 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "api/Officers")
 public class OfficerRestController {
-/*
+
     @Autowired
     OfficersServiceImpls service;
 
@@ -53,7 +53,7 @@ public class OfficerRestController {
         return service.update(officers);
     }
 
-*/
+
 
 
 

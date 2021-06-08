@@ -55,20 +55,37 @@
     </table>
     <a class="btn btn-access; btn btn-outline-dark" href="/ui/Army/create">Create</a>
 
-    <br>
-    <br>
-
-    <div style="margin: 0 auto; width: 100%">
-        <table class="table table-dark table-hover">
-
-            <tr>
-                <th>ЗАПИТИ</th>
-            </tr>
-
-        </table>
-    </div>
 </div>
 
+<div style="margin: 0 auto; width: 100%">
+    <table class="table table-dark table-hover">
+
+        <tr>
+            <th>ЗАПИТИ</th>
+        </tr>
+
+        <tr>
+            <td>Армія повна інформація</td>
+            <td>
+                <a href="/operations3/get/all">
+                    <button class="btn btn-light btn-sm">Перейти</button>
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Армія з головною людиною</td>
+            <td>
+                <a href="/operations3/get/all/Army">
+                    <button class="btn btn-light btn-sm">Перейти</button>
+                </a>
+            </td>
+        </tr>
+
+
+
+    </table>
+</div>
 
 </body>
 </html>
