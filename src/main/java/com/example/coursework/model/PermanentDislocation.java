@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -20,21 +21,27 @@ public class PermanentDislocation {
     private String permanentDislocation;
     private String city;
     private String address;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public PermanentDislocation() {
     }
 
-    public PermanentDislocation(String permanentDislocation, String city, String address) {
-        this.permanentDislocation = permanentDislocation;
-        this.city = city;
-        this.address = address;
-    }
-
-    public PermanentDislocation(String id, String permanentDislocation, String city, String address) {
+    public PermanentDislocation(String id, String permanentDislocation, String city, String address, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.permanentDislocation = permanentDislocation;
         this.city = city;
         this.address = address;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public PermanentDislocation(String permanentDislocation, String city, String address, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.permanentDislocation = permanentDislocation;
+        this.city = city;
+        this.address = address;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -69,6 +76,22 @@ public class PermanentDislocation {
         this.address = address;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,11 +107,13 @@ public class PermanentDislocation {
 
     @Override
     public String toString() {
-        return "Permanent_dislocation{" +
+        return "PermanentDislocation{" +
                 "id='" + id + '\'' +
                 ", permanentDislocation='" + permanentDislocation + '\'' +
                 ", city='" + city + '\'' +
                 ", address='" + address + '\'' +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

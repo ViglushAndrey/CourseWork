@@ -1,6 +1,5 @@
 package com.example.coursework.service.Vzvods.Interfaces;
 
-import com.example.coursework.model.Viddilenia;
 import com.example.coursework.model.Vzvods;
 
 import java.util.List;

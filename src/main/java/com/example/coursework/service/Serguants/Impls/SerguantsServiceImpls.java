@@ -2,6 +2,7 @@ package com.example.coursework.service.Serguants.Impls;
 
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.Officers;
+import com.example.coursework.model.Ordinarys;
 import com.example.coursework.model.Serguants;
 import com.example.coursework.repository.Officers.OfficersRepository;
 import com.example.coursework.repository.Serguants.SerguantsRepository;
@@ -45,6 +46,13 @@ public class SerguantsServiceImpls implements SerguantsService {
         serguants.setCreated_at(LocalDateTime.now());
 
         return repository.save(serguants);
+    }
+
+    public Serguants getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

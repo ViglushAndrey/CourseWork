@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Armament</title>
+    <title>Edit Armament</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         fieldset{
@@ -94,20 +94,20 @@
     </style>
 </head>
 <body>
-<header><h1 align="center">Create new Armament</h1></header>
+<header><h1 align="center">Edit Armament</h1></header>
 <hr class="h-color">
 <div style="margin-top: 100px">
     <fieldset style=" margin-left: auto; margin-right: auto">
-        <legend style="text-align: center;"><h3>Add officer</h3></legend>
+        <legend style="text-align: center;"><h3>Add Armament</h3></legend>
         <form name="armament" action="" method="POST">
-            <h3>Grenades:<@spring.formInput "form.name" "" "text" /></h3>
-            <h3>Pistols:<@spring.formInput "form.bDay" "" "date"/></h3>
-            <h3>SniperRifles:<@spring.formInput "form.speciality" "" "text"/></h3>
-            <h3>MachinesGuns:<@spring.formInput "form.dateOfAssignmentOfAnOfficerRank" "" "date"/></h3>
-            <h3>Automats:<@spring.formInput "form.awards" "" "text"/></h3>
-            <h3>MilitaryEquipment:<@spring.formSingleSelect "form.officersRanks" officersRanks ""/></h3>
-            <h3>TransportEquipment:<@spring.formSingleSelect "form.officersRanks" officersRanks ""/></h3>
-            <input type="submit" value="Edit" class="stilisation">
+            <h3>Grenades:<@spring.formSingleSelect "formUpd.grenades" grenade "" /></h3>
+            <h3>Pistols:<@spring.formSingleSelect "formUpd.pistols" pistol ""/></h3>
+            <h3>SniperRifles:<@spring.formSingleSelect "formUpd.sniperRifles" sniperRifle ""/></h3>
+            <h3>MachinesGuns:<@spring.formSingleSelect "formUpd.machinesGuns" machinesGun ""/></h3>
+            <h3>Automats:<@spring.formSingleSelect "formUpd.automats" automat ""/></h3>
+            <h3>MilitaryEquipment:<@spring.formSingleSelect "formUpd.militaryEquipment" militaryEquipment ""/></h3>
+            <h3>TransportEquipment:<@spring.formSingleSelect "formUpd.transportEquipment" transportEquipment ""/>
+            </h3><input type="submit" value="Edit" class="stilisation">
         </form>
     </fieldset>
 </div>

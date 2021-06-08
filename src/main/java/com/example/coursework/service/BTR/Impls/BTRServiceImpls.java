@@ -2,6 +2,7 @@ package com.example.coursework.service.BTR.Impls;
 
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.BTR;
+import com.example.coursework.model.FreightCar;
 import com.example.coursework.model.Officers;
 import com.example.coursework.repository.BTR.BTRRepository;
 import com.example.coursework.repository.Officers.OfficersRepository;
@@ -46,6 +47,13 @@ public class BTRServiceImpls implements BTRService {
         btr.setCreated_at(LocalDateTime.now());
 
         return repository.save(btr);
+    }
+
+    public BTR getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

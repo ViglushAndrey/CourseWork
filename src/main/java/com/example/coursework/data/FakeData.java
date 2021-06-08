@@ -29,18 +29,18 @@ public class FakeData {
 
     private List<TemporaryDislocation> temporaryDislocations = new ArrayList<>(
             Arrays.asList(
-                    new TemporaryDislocation( "1", "Полігон", "Чернівці","вулиця Московської Олімпіади, 6",LocalDateTime.now(),null),
-                    new TemporaryDislocation( "2", "Полігон", "с. Ропча Сторожинецького району","",LocalDateTime.now(),null),
-                    new TemporaryDislocation( "3", "Полігон", "Сторожинець","вулиця Антона Чехова",LocalDateTime.now(),null),
-                    new TemporaryDislocation( "4", "Полігон", "Чернівці","вулиця Московської Олімпіади,33",LocalDateTime.now(),null)
+                    new TemporaryDislocation( "1", "Чернівецький Полігон 1", "Чернівці","вулиця Московської Олімпіади, 6",LocalDateTime.now(),null),
+                    new TemporaryDislocation( "2", "Сторожинецький Полігон 1", "с. Ропча Сторожинецького району","",LocalDateTime.now(),null),
+                    new TemporaryDislocation( "3", "Сторожинецький Полігон 2", "Сторожинець","вулиця Антона Чехова",LocalDateTime.now(),null),
+                    new TemporaryDislocation( "4", "Чернівецький Полігон 2", "Чернівці","вулиця Московської Олімпіади,33",LocalDateTime.now(),null)
             )
     );
     private List<PermanentDislocation> permanentDislocations = new ArrayList<>(
             Arrays.asList(
-                    new PermanentDislocation( "1", "Полігон", "Чернівці","вулиця Московської Олімпіади, 6"),
-                    new PermanentDislocation( "2", "Полігон", "с. Ропча Сторожинецького району",""),
-                    new PermanentDislocation( "3", "Полігон", "Сторожинець","вулиця Антона Чехова"),
-                    new PermanentDislocation( "4", "Полігон", "Чернівці","вулиця Московської Олімпіади,33")
+                    new PermanentDislocation( "1", "Чернівецький Полігон 1", "Чернівці","вулиця Московської Олімпіади, 6",LocalDateTime.now(),null),
+                    new PermanentDislocation( "2", "Сторожинецький Полігон 1", "с. Ропча Сторожинецького району","",LocalDateTime.now(),null),
+                    new PermanentDislocation( "3", "Сторожинецький Полігон 2", "Сторожинець","вулиця Антона Чехова",LocalDateTime.now(),null),
+                    new PermanentDislocation( "4", "Чернівецький Полігон 2", "Чернівці","вулиця Московської Олімпіади,33",LocalDateTime.now(),null)
             )
     );
 
@@ -71,27 +71,27 @@ public class FakeData {
     );
     private List<SniperRifles> sniperRifles = new ArrayList<>(
             Arrays.asList(
-                    new SniperRifles("1", "КОРД (АСВК)","12,7 мм",5),
-                    new SniperRifles("2", "PSG1","7,62×51",5),
-                    new SniperRifles("3", "Винторез","9мм",20),
-                    new SniperRifles("4", "«Орсис» Т-5000","8,6мм",10),
-                    new SniperRifles("5", "Barrett M82","12,7×99мм",10)
+                    new SniperRifles("1", "КОРД (АСВК)","12,7 мм",5,LocalDateTime.now(),null),
+                    new SniperRifles("2", "PSG1","7,62×51",5,LocalDateTime.now(),null),
+                    new SniperRifles("3", "Винторез","9мм",20,LocalDateTime.now(),null),
+                    new SniperRifles("4", "«Орсис» Т-5000","8,6мм",10,LocalDateTime.now(),null),
+                    new SniperRifles("5", "Barrett M82","12,7×99мм",10,LocalDateTime.now(),null)
             )
     );
     private List<MachinesGuns> machinesGuns = new ArrayList<>(
             Arrays.asList(
-                    new MachinesGuns("1","Browning M1918","7,62x63мм",20),
-                    new MachinesGuns("2","Bergmann LMG 15","7,9мм",200),
-                    new MachinesGuns("3","ČZ 2000","5,56x45мм",30),
-                    new MachinesGuns("4","Dror LMG","7,92×57мм",20)
+                    new MachinesGuns("1","Browning M1918","7,62x63мм",20,LocalDateTime.now(),null),
+                    new MachinesGuns("2","Bergmann LMG 15","7,9мм",200,LocalDateTime.now(),null),
+                    new MachinesGuns("3","ČZ 2000","5,56x45мм",30,LocalDateTime.now(),null),
+                    new MachinesGuns("4","Dror LMG","7,92×57мм",20,LocalDateTime.now(),null)
             )
     );
     private List<Automats> automats = new ArrayList<>(
             Arrays.asList(
-                    new Automats("1","Tаvоr TАR-21","5,56мм",30),
-                    new Automats("2","АК-101","5,56мм",30),
-                    new Automats("3","АК-74М","5,45мм",30),
-                    new Automats("4","АК-12","5,45мм",96)
+                    new Automats("1","Tаvоr TАR-21","5,56мм",30,LocalDateTime.now(),null),
+                    new Automats("2","АК-101","5,56мм",30,LocalDateTime.now(),null),
+                    new Automats("3","АК-74М","5,45мм",30,LocalDateTime.now(),null),
+                    new Automats("4","АК-12","5,45мм",96,LocalDateTime.now(),null)
             )
     );
     private List<Tanks> tanks = new ArrayList<>(
@@ -122,17 +122,17 @@ public class FakeData {
 
     private List<MilitaryEquipment> militaryEquipments = new ArrayList<>(
             Arrays.asList(
-                    new MilitaryEquipment("1", tanks.get(0), 5, bmp.get(2), 6, btr.get(1), 4, 15),
-                    new MilitaryEquipment("2", tanks.get(2), 10, bmp.get(0), 3, btr.get(2), 7, 20),
-                    new MilitaryEquipment("3", tanks.get(1), 7, bmp.get(3), 6, btr.get(3), 2, 15),
-                    new MilitaryEquipment("4", tanks.get(3), 4, bmp.get(1), 9, btr.get(0), 6, 19)
+                    new MilitaryEquipment("1", tanks.get(0), 5, bmp.get(2), 6, btr.get(1), 4, "15",LocalDateTime.now(),null),
+                    new MilitaryEquipment("2", tanks.get(2), 10, bmp.get(0), 3, btr.get(2), 7, "20",LocalDateTime.now(),null),
+                    new MilitaryEquipment("3", tanks.get(1), 7, bmp.get(3), 6, btr.get(3), 2, "15",LocalDateTime.now(),null),
+                    new MilitaryEquipment("4", tanks.get(3), 4, bmp.get(1), 9, btr.get(0), 6, "19",LocalDateTime.now(),null)
             )
     );
     private List<FreightCar> freightCars = new ArrayList<>(
             Arrays.asList(
-                    new FreightCar("1", "ГАЗ-66", "Вантажний автомобіль підвищеної прохідності з колісною формулою 4х4", 3.5, "2т.", 90),
-                    new FreightCar("2", "ЗІЛ-131", "Вантажний автомобіль з колісною формулою 6х6", 6.4, "5т.", 80),
-                    new FreightCar("3", "Урал-4320", "вантажний автомобіль підвищеної прохідності подвійного призначення з колісною формулою 6х6", 8.4, "12т.", 85)
+                    new FreightCar("1", "ГАЗ-66",3.5 ,90 , "2т.", "Вантажний автомобіль підвищеної прохідності з колісною формулою 4х4",LocalDateTime.now(),null),
+                    new FreightCar("2", "ЗІЛ-131", 6.4, 80, "5т.", "Вантажний автомобіль з колісною формулою 6х6",LocalDateTime.now(),null),
+                    new FreightCar("3", "Урал-4320", 8.4, 85, "12т.", "Вантажний автомобіль підвищеної прохідності подвійного призначення з колісною формулою 6х6",LocalDateTime.now(),null)
             )
     );
     private List<Tractor> tractors = new ArrayList<>(
@@ -147,9 +147,9 @@ public class FakeData {
 
     private List<TransportEquipment> transportEquipments = new ArrayList<>(
             Arrays.asList(
-                    new TransportEquipment("1", freightCars.get(1), 3, tractors.get(0), 5, 8),
-                    new TransportEquipment("2", freightCars.get(0), 5, tractors.get(2), 4, 9),
-                    new TransportEquipment("3", freightCars.get(2), 2, tractors.get(1), 3, 5)
+                    new TransportEquipment("1", freightCars.get(1), 3, tractors.get(0), 5, "8",LocalDateTime.now(),null),
+                    new TransportEquipment("2", freightCars.get(0), 5, tractors.get(2), 4, "9",LocalDateTime.now(),null),
+                    new TransportEquipment("3", freightCars.get(2), 2, tractors.get(1), 3, "5",LocalDateTime.now(),null)
             )
     );
 
@@ -157,9 +157,9 @@ public class FakeData {
 
     private List<Armament> armament = new ArrayList<>(
             Arrays.asList(
-                    new Armament("1", grenades.get(4),pistols.get(1),sniperRifles.get(2),machinesGuns.get(1),automats.get(0),militaryEquipments.get(0),transportEquipments.get(1)),
-                    new Armament("2", grenades.get(3),pistols.get(2),sniperRifles.get(3),machinesGuns.get(0),automats.get(2),militaryEquipments.get(1),transportEquipments.get(2)),
-                    new Armament("3", grenades.get(2),pistols.get(0),sniperRifles.get(0),machinesGuns.get(2),automats.get(3),militaryEquipments.get(2),transportEquipments.get(0))
+                    new Armament("1", grenades.get(4),pistols.get(1),sniperRifles.get(2),machinesGuns.get(1),automats.get(0),militaryEquipments.get(0),transportEquipments.get(1),LocalDateTime.now(),null),
+                    new Armament("2", grenades.get(3),pistols.get(2),sniperRifles.get(3),machinesGuns.get(0),automats.get(2),militaryEquipments.get(1),transportEquipments.get(2),LocalDateTime.now(),null),
+                    new Armament("3", grenades.get(2),pistols.get(0),sniperRifles.get(0),machinesGuns.get(2),automats.get(3),militaryEquipments.get(2),transportEquipments.get(0),LocalDateTime.now(),null)
             )
     );
 
@@ -194,26 +194,26 @@ public class FakeData {
             )
     );
 
-    private  List<Viddilenia> viddilenias = new ArrayList<>(
+    private  List<Department> departments = new ArrayList<>(
             Arrays.asList(
-                    new Viddilenia("1","15 Механізоване відділення", 9, ordinarys.get(0), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(2)),
-                    new Viddilenia("2","22 Механізоване відділення", 10, ordinarys.get(1), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(0)),
-                    new Viddilenia("3","105 Механізоване відділення", 12, ordinarys.get(2), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(3)),
-                    new Viddilenia("4","98 Механізоване відділення", 8, ordinarys.get(8), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(0)),
-                    new Viddilenia("5","505 Механізоване відділення", 7, ordinarys.get(5), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(3)),
-                    new Viddilenia("6","33 Механізоване відділення", 9, ordinarys.get(6), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(1)),
-                    new Viddilenia("7","01 Механізоване відділення", 11, ordinarys.get(4), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(2)),
-                    new Viddilenia("8","25 Механізоване відділення", 12, ordinarys.get(3), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(1)),
-                    new Viddilenia("9","80 Механізоване відділення", 10, ordinarys.get(7), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(3))
+                    new Department("1","15 Механізоване відділення", 9, ordinarys.get(0), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(2),transportEquipments.get(1), militaryEquipments.get(1),LocalDateTime.now(),null),
+                    new Department("2","22 Механізоване відділення", 10, ordinarys.get(1), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(0),transportEquipments.get(2), militaryEquipments.get(2),LocalDateTime.now(),null),
+                    new Department("3","10 Механізоване відділення", 12, ordinarys.get(2), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(3),transportEquipments.get(1), militaryEquipments.get(3),LocalDateTime.now(),null),
+                    new Department("4","98 Механізоване відділення", 8, ordinarys.get(8), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(0),transportEquipments.get(2), militaryEquipments.get(2),LocalDateTime.now(),null),
+                    new Department("5","505 Механізоване відділення", 7, ordinarys.get(5), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(3),transportEquipments.get(1), militaryEquipments.get(1),LocalDateTime.now(),null),
+                    new Department("6","33 Механізоване відділення", 9, ordinarys.get(6), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(1),transportEquipments.get(2), militaryEquipments.get(1),LocalDateTime.now(),null),
+                    new Department("7","01 Механізоване відділення", 11, ordinarys.get(4), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(2),transportEquipments.get(1), militaryEquipments.get(3),LocalDateTime.now(),null),
+                    new Department("8","25 Механізоване відділення", 12, ordinarys.get(3), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(1),transportEquipments.get(2), militaryEquipments.get(3),LocalDateTime.now(),null),
+                    new Department("9","80 Механізоване відділення", 10, ordinarys.get(7), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(3),transportEquipments.get(1), militaryEquipments.get(3),LocalDateTime.now(),null)
 
             )
     );
 
     private  List<Vzvods> vzvods = new ArrayList<>(
             Arrays.asList(
-                    new Vzvods("1","15 Піхотний взвод", 29, new ArrayList<>(Arrays.asList(viddilenias.get(0), viddilenias.get(1), viddilenias.get(2))), armament.get(0), serguants.get(2), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(0)),
-                    new Vzvods("2","12 Танковий взвод", 18, new ArrayList<>(Arrays.asList(viddilenias.get(3), viddilenias.get(4), viddilenias.get(5))), armament.get(2), serguants.get(1), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(1)),
-                    new Vzvods("3","11 Розвідувальний взвод", 20, new ArrayList<>(Arrays.asList(viddilenias.get(6), viddilenias.get(7), viddilenias.get(8))), armament.get(1), serguants.get(0), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(2))
+                    new Vzvods("1","15 Піхотний взвод", 29, departments.get(1), armament.get(0), serguants.get(2), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(0),LocalDateTime.now(),null),
+                    new Vzvods("2","12 Танковий взвод", 18, departments.get(5), armament.get(2), serguants.get(1), obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(1),LocalDateTime.now(),null),
+                    new Vzvods("3","11 Розвідувальний взвод", 20, departments.get(8), armament.get(1), serguants.get(0), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(2),LocalDateTime.now(),null)
 
             )
     );
@@ -221,10 +221,68 @@ public class FakeData {
     private  List<Rota> rota = new ArrayList<>(
 
             Arrays.asList(
-                    new Rota("1","50 Танковая рота", 80, new ArrayList<>(Arrays.asList(vzvods.get(0), vzvods.get(2), vzvods.get(1))), armament.get(0), officers.get(1), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(1))
+                    new Rota("1","50 Танковая рота", 80, vzvods.get(1), armament.get(0), officers.get(1), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(1),LocalDateTime.now(),null),
+                    new Rota("2","66 Механізована рота", 85, vzvods.get(0), armament.get(1), officers.get(2), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(0),LocalDateTime.now(),null),
+                    new Rota("3","100 Мобільно-Піхотна рота", 75, vzvods.get(2), armament.get(1), officers.get(0), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(1),LocalDateTime.now(),null)
             )
 
     );
+
+    private List<Brigade> brigade = new ArrayList<>(
+            Arrays.asList(
+                    new Brigade("1", "30 Розвідувальна бригада",120, rota.get(1), armament.get(1), officers.get(0), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(0),LocalDateTime.now(),null),
+                    new Brigade("2", "60 Танкова бригада",150, rota.get(2), armament.get(2), officers.get(1), obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(2),LocalDateTime.now(),null),
+                    new Brigade("3", "30 Парашутно-Дисантна бригада",200, rota.get(0), armament.get(0), officers.get(2), obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(0),LocalDateTime.now(),null)
+            )
+    );
+
+    private List<Battalion> battalions = new ArrayList<>(
+            Arrays.asList(
+                    new Battalion("1", "300 Розвідувальний батальйон",500, brigade.get(0), armament.get(1), generals.get(0), officers.get(1),obj.get(0), permanentDislocations.get(1), temporaryDislocations.get(1),LocalDateTime.now(),null),
+                    new Battalion("2", "600 Танковий батальйон",450, brigade.get(1), armament.get(0), generals.get(2), officers.get(1),obj.get(0), permanentDislocations.get(2), temporaryDislocations.get(2),LocalDateTime.now(),null),
+                    new Battalion("3", "150 Механізований батальйон",600, brigade.get(2), armament.get(2), generals.get(3), officers.get(1),obj.get(0), permanentDislocations.get(0), temporaryDislocations.get(0),LocalDateTime.now(),null)
+            )
+    );
+
+    private List<Army> armies = new ArrayList<>(
+            Arrays.asList(
+                    new Army("1", "Армия вторжения",1500, battalions.get(0), armament.get(1), generals.get(0), permanentDislocations.get(1), temporaryDislocations.get(0), obj.get(0),LocalDateTime.now(),null)
+            )
+    );
+
+    public List<Battalion> getBattalions() {
+        return battalions;
+    }
+
+
+
+    public void setBattalions(List<Battalion> battalions) {
+        this.battalions = battalions;
+    }
+
+    public List<Army> getArmies() {
+        return armies;
+    }
+
+    public void setArmies(List<Army> armies) {
+        this.armies = armies;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
+    public List<Brigade> getBrigade() {
+        return brigade;
+    }
+
+    public void setBrigade(List<Brigade> brigade) {
+        this.brigade = brigade;
+    }
 
     public List<Generals> getGenerals() {
         return generals;
@@ -402,11 +460,11 @@ public class FakeData {
         this.ordinarys = ordinarys;
     }
 
-    public List<Viddilenia> getViddilenias() {
-        return viddilenias;
+    public List<Department> getViddilenias() {
+        return departments;
     }
 
-    public void setViddilenias(List<Viddilenia> viddilenias) {
-        this.viddilenias = viddilenias;
+    public void setViddilenias(List<Department> departments) {
+        this.departments = departments;
     }
 }

@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -18,30 +19,38 @@ public class FreightCar {
 
     @Id
     private String id;
+
     private String name;
-    private String bodyType;
     private double weight;
-    private String liftingCapacity;
     private int maximumSpeed;
+    private String liftingCapacity;
+    private String bodyType;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
+
 
     public FreightCar() {
     }
 
-    public FreightCar(String name, String bodyType, double weight, String liftingCapacity, int maximumSpeed) {
-        this.name = name;
-        this.bodyType = bodyType;
-        this.weight = weight;
-        this.liftingCapacity = liftingCapacity;
-        this.maximumSpeed = maximumSpeed;
-    }
-
-    public FreightCar(String id, String name, String bodyType, double weight, String liftingCapacity, int maximumSpeed) {
+    public FreightCar(String id, String name, double weight, int maximumSpeed, String liftingCapacity, String bodyType, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.name = name;
-        this.bodyType = bodyType;
         this.weight = weight;
-        this.liftingCapacity = liftingCapacity;
         this.maximumSpeed = maximumSpeed;
+        this.liftingCapacity = liftingCapacity;
+        this.bodyType = bodyType;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public FreightCar(String name, double weight, int maximumSpeed, String liftingCapacity, String bodyType, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.name = name;
+        this.weight = weight;
+        this.maximumSpeed = maximumSpeed;
+        this.liftingCapacity = liftingCapacity;
+        this.bodyType = bodyType;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -92,6 +101,22 @@ public class FreightCar {
         this.maximumSpeed = maximumSpeed;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -110,10 +135,12 @@ public class FreightCar {
         return "FreightCar{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", bodyType='" + bodyType + '\'' +
-                ", weight='" + weight + '\'' +
-                ", liftingCapacity='" + liftingCapacity + '\'' +
+                ", weight=" + weight +
                 ", maximumSpeed=" + maximumSpeed +
+                ", liftingCapacity='" + liftingCapacity + '\'' +
+                ", bodyType='" + bodyType + '\'' +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

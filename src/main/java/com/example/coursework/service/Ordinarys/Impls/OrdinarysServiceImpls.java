@@ -3,6 +3,7 @@ package com.example.coursework.service.Ordinarys.Impls;
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.Officers;
 import com.example.coursework.model.Ordinarys;
+import com.example.coursework.model.Tractor;
 import com.example.coursework.repository.Officers.OfficersRepository;
 import com.example.coursework.repository.Ordinarys.OrdinarysRepository;
 import com.example.coursework.service.Ordinarys.Interfaces.OrdinarysService;
@@ -45,6 +46,13 @@ public class OrdinarysServiceImpls implements OrdinarysService {
         ordinarys.setCreated_at(LocalDateTime.now());
 
         return repository.save(ordinarys);
+    }
+
+    public Ordinarys getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

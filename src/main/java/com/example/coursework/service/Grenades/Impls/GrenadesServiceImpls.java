@@ -1,6 +1,7 @@
 package com.example.coursework.service.Grenades.Impls;
 
 import com.example.coursework.data.FakeData;
+import com.example.coursework.model.Automats;
 import com.example.coursework.model.Grenades;
 import com.example.coursework.model.Officers;
 import com.example.coursework.repository.Grenades.GrenadesRepository;
@@ -55,6 +56,13 @@ public class GrenadesServiceImpls implements GrenadesService {
         grenades.setModify_at(LocalDateTime.now());
         return repository.save(grenades);
 
+    }
+
+    public Grenades getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getModel().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

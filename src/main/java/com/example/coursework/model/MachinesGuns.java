@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -20,21 +21,27 @@ public class MachinesGuns {
     private String model;
     private String caliber;
     private int numberOfCartridgesInMagazine;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public MachinesGuns() {
     }
 
-    public MachinesGuns(String model, String caliber, int numberOfCartridgesInMagazine) {
-        this.model = model;
-        this.caliber = caliber;
-        this.numberOfCartridgesInMagazine = numberOfCartridgesInMagazine;
-    }
-
-    public MachinesGuns(String id, String model, String caliber, int numberOfCartridgesInMagazine) {
+    public MachinesGuns(String id, String model, String caliber, int numberOfCartridgesInMagazine, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.model = model;
         this.caliber = caliber;
         this.numberOfCartridgesInMagazine = numberOfCartridgesInMagazine;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public MachinesGuns(String model, String caliber, int numberOfCartridgesInMagazine, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.model = model;
+        this.caliber = caliber;
+        this.numberOfCartridgesInMagazine = numberOfCartridgesInMagazine;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -69,6 +76,22 @@ public class MachinesGuns {
         this.numberOfCartridgesInMagazine = numberOfCartridgesInMagazine;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,8 +110,10 @@ public class MachinesGuns {
         return "MachinesGuns{" +
                 "id='" + id + '\'' +
                 ", model='" + model + '\'' +
-                ", calibr='" + caliber + '\'' +
+                ", caliber='" + caliber + '\'' +
                 ", numberOfCartridgesInMagazine=" + numberOfCartridgesInMagazine +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

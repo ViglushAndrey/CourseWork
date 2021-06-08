@@ -47,6 +47,13 @@ public class GeneralsServiceImpls implements GeneralsService {
         return repository.save(generals);
     }
 
+    public Generals getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+    }
+
     @Override
     public Generals update(Generals generals) {
 

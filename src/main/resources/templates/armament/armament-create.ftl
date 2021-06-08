@@ -100,13 +100,13 @@
     <fieldset style=" margin-left: auto; margin-right: auto">
         <legend style="text-align: center;"><h3>Add officer</h3></legend>
         <form name="armament" action="" method="POST">
-            <h3>Grenades:<@spring.formInput "form.name" "" "text" /></h3>
-            <h3>Pistols:<@spring.formInput "form.bDay" "" "date"/></h3>
-            <h3>SniperRifles:<@spring.formInput "form.speciality" "" "text"/></h3>
-            <h3>MachinesGuns:<@spring.formInput "form.dateOfAssignmentOfAnOfficerRank" "" "date"/></h3>
-            <h3>Automats:<@spring.formInput "form.awards" "" "text"/></h3>
-            <h3>MilitaryEquipment:<@spring.formSingleSelect "form.officersRanks" officersRanks ""/></h3>
-            <h3>TransportEquipment:<@spring.formSingleSelect "form.officersRanks" officersRanks ""/></h3>
+            <h3>Grenades:<@spring.formSingleSelect "form.grenades" grenades "" /></h3>
+            <h3>Pistols:<@spring.formSingleSelect "form.pistols" pistols ""/></h3>
+            <h3>SniperRifles:<@spring.formSingleSelect "form.sniperRifles" sniperRifles ""/></h3>
+            <h3>MachinesGuns:<@spring.formSingleSelect "form.machinesGuns" machinesGuns ""/></h3>
+            <h3>Automats:<@spring.formSingleSelect "form.automats" automats ""/></h3>
+            <h3>MilitaryEquipment:<@spring.formSingleSelect "form.militaryEquipment" militaryEquipment ""/></h3>
+            <h3>TransportEquipment:<@spring.formSingleSelect "form.transportEquipment" transportEquipment ""/></h3>
             <input type="submit" value="Create" class="stilisation">
         </form>
     </fieldset>

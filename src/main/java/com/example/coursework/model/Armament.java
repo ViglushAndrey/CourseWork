@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -26,12 +27,14 @@ public class Armament {
     private Automats automats;
     private MilitaryEquipment militaryEquipment;
     private TransportEquipment transportEquipment;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public Armament() {
     }
 
-    public Armament (Grenades grenades, Pistols pistols, SniperRifles sniperRifles, MachinesGuns machinesGuns, Automats automats, MilitaryEquipment militaryEquipment, TransportEquipment transportEquipment) {
-
+    public Armament(String id, Grenades grenades, Pistols pistols, SniperRifles sniperRifles, MachinesGuns machinesGuns, Automats automats, MilitaryEquipment militaryEquipment, TransportEquipment transportEquipment, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.id = id;
         this.grenades = grenades;
         this.pistols = pistols;
         this.sniperRifles = sniperRifles;
@@ -39,11 +42,11 @@ public class Armament {
         this.automats = automats;
         this.militaryEquipment = militaryEquipment;
         this.transportEquipment = transportEquipment;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
-    public Armament(String id, Grenades grenades, Pistols pistols, SniperRifles sniperRifles, MachinesGuns machinesGuns, Automats automats, MilitaryEquipment militaryEquipment, TransportEquipment transportEquipment) {
-        this.id = id;
-
+    public Armament(Grenades grenades, Pistols pistols, SniperRifles sniperRifles, MachinesGuns machinesGuns, Automats automats, MilitaryEquipment militaryEquipment, TransportEquipment transportEquipment, LocalDateTime created_at, LocalDateTime modify_at) {
         this.grenades = grenades;
         this.pistols = pistols;
         this.sniperRifles = sniperRifles;
@@ -51,6 +54,8 @@ public class Armament {
         this.automats = automats;
         this.militaryEquipment = militaryEquipment;
         this.transportEquipment = transportEquipment;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -118,6 +123,22 @@ public class Armament {
         this.transportEquipment = transportEquipment;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -142,6 +163,8 @@ public class Armament {
                 ", automats=" + automats +
                 ", militaryEquipment=" + militaryEquipment +
                 ", transportEquipment=" + transportEquipment +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

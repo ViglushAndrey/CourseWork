@@ -1,12 +1,17 @@
 package com.example.coursework.forms;
 
+import java.time.LocalDateTime;
+
 public class FreightCarForm {
+
     private String id;
     private String name;
-    private String bodyType;
     private double weight;
-    private String liftingCapacity;
     private int maximumSpeed;
+    private String liftingCapacity;
+    private String bodyType;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public FreightCarForm() {
     }
@@ -59,15 +64,33 @@ public class FreightCarForm {
         this.maximumSpeed = maximumSpeed;
     }
 
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
+    }
+
     @Override
     public String toString() {
         return "FreightCarForm{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", bodyType='" + bodyType + '\'' +
                 ", weight=" + weight +
-                ", liftingCapacity='" + liftingCapacity + '\'' +
                 ", maximumSpeed=" + maximumSpeed +
+                ", liftingCapacity='" + liftingCapacity + '\'' +
+                ", bodyType='" + bodyType + '\'' +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

@@ -4,13 +4,13 @@ import com.example.coursework.model.*;
 
 public class ArmamentForm {
     private String id;
-    private Grenades grenades;
-    private Pistols pistols;
-    private SniperRifles sniperRifles;
-    private MachinesGuns machinesGuns;
-    private Automats automats;
-    private MilitaryEquipment militaryEquipment;
-    private TransportEquipment transportEquipment;
+    private String grenades;
+    private String pistols;
+    private String sniperRifles;
+    private String machinesGuns;
+    private String automats;
+    private String militaryEquipment;
+    private String transportEquipment;
 
     public ArmamentForm() {
     }
@@ -23,73 +23,59 @@ public class ArmamentForm {
         this.id = id;
     }
 
-    public Grenades getGrenades() {
+    public String getGrenades() {
         return grenades;
     }
 
-    public void setGrenades(Grenades grenades) {
+    public void setGrenades(String grenades) {
         this.grenades = grenades;
     }
 
-    public Pistols getPistols() {
+    public String getPistols() {
         return pistols;
     }
 
-    public void setPistols(Pistols pistols) {
+    public void setPistols(String pistols) {
         this.pistols = pistols;
     }
 
-    public SniperRifles getSniperRifles() {
+    public String getSniperRifles() {
         return sniperRifles;
     }
 
-    public void setSniperRifles(SniperRifles sniperRifles) {
+    public void setSniperRifles(String sniperRifles) {
         this.sniperRifles = sniperRifles;
     }
 
-    public MachinesGuns getMachinesGuns() {
+    public String getMachinesGuns() {
         return machinesGuns;
     }
 
-    public void setMachinesGuns(MachinesGuns machinesGuns) {
+    public void setMachinesGuns(String machinesGuns) {
         this.machinesGuns = machinesGuns;
     }
 
-    public Automats getAutomats() {
+    public String getAutomats() {
         return automats;
     }
 
-    public void setAutomats(Automats automats) {
+    public void setAutomats(String automats) {
         this.automats = automats;
     }
 
-    public MilitaryEquipment getMilitaryEquipment() {
+    public String getMilitaryEquipment() {
         return militaryEquipment;
     }
 
-    public void setMilitaryEquipment(MilitaryEquipment militaryEquipment) {
+    public void setMilitaryEquipment(String militaryEquipment) {
         this.militaryEquipment = militaryEquipment;
     }
 
-    public TransportEquipment getTransportEquipment() {
+    public String getTransportEquipment() {
         return transportEquipment;
     }
 
-    public void setTransportEquipment(TransportEquipment transportEquipment) {
+    public void setTransportEquipment(String transportEquipment) {
         this.transportEquipment = transportEquipment;
-    }
-
-    @Override
-    public String toString() {
-        return "ArmamentForm{" +
-                "id='" + id + '\'' +
-                ", grenades=" + grenades +
-                ", pistols=" + pistols +
-                ", sniperRifles=" + sniperRifles +
-                ", machinesGuns=" + machinesGuns +
-                ", automats=" + automats +
-                ", militaryEquipment=" + militaryEquipment +
-                ", transportEquipment=" + transportEquipment +
-                '}';
     }
 }

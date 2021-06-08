@@ -2,6 +2,7 @@ package com.example.coursework.service.BMP.Impls;
 
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.BMP;
+import com.example.coursework.model.FreightCar;
 import com.example.coursework.model.Officers;
 import com.example.coursework.repository.BMP.BMPRepository;
 import com.example.coursework.repository.Officers.OfficersRepository;
@@ -44,6 +45,13 @@ public class BMPServiceImpls implements BMPService {
         bmp.setId(id);
         bmp.setCreated_at(LocalDateTime.now());
         return repository.save(bmp);
+    }
+
+    public BMP getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

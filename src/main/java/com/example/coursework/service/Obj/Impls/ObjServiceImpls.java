@@ -3,6 +3,7 @@ package com.example.coursework.service.Obj.Impls;
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.Obj;
 import com.example.coursework.model.Officers;
+import com.example.coursework.model.Tractor;
 import com.example.coursework.repository.Obj.ObjRepository;
 import com.example.coursework.repository.Officers.OfficersRepository;
 import com.example.coursework.service.Obj.Interfaces.ObjService;
@@ -45,6 +46,13 @@ public class ObjServiceImpls implements ObjService {
         obj.setCreated_at(LocalDateTime.now());
 
         return repository.save(obj);
+    }
+
+    public Obj getByTypes(String types){
+        return repository.findAll().stream()
+                .filter(item -> item.getTypesOfBuildings().equals(types))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

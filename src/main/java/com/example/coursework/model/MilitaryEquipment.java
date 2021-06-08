@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,22 +28,14 @@ public class MilitaryEquipment {
     private int numberOfBmp;
     private BTR btr;
     private int numberOfBtr;
-    private int totalMilitaryEquipment;
+    private String totalMilitaryEquipment;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public MilitaryEquipment() {
     }
 
-    public MilitaryEquipment(Tanks tanks, int numberOfTanks, BMP bmp, int numberOfBmp, BTR btr, int numberOfBtr, int totalMilitaryEquipment) {
-        this.tanks = tanks;
-        this.numberOfTanks = numberOfTanks;
-        this.bmp = bmp;
-        this.numberOfBmp = numberOfBmp;
-        this.btr = btr;
-        this.numberOfBtr = numberOfBtr;
-        this.totalMilitaryEquipment = totalMilitaryEquipment;
-    }
-
-    public MilitaryEquipment(String id, Tanks tanks, int numberOfTanks, BMP bmp, int numberOfBmp, BTR btr, int numberOfBtr, int totalMilitaryEquipment) {
+    public MilitaryEquipment(String id, Tanks tanks, int numberOfTanks, BMP bmp, int numberOfBmp, BTR btr, int numberOfBtr, String totalMilitaryEquipment, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.tanks = tanks;
         this.numberOfTanks = numberOfTanks;
@@ -51,6 +44,20 @@ public class MilitaryEquipment {
         this.btr = btr;
         this.numberOfBtr = numberOfBtr;
         this.totalMilitaryEquipment = totalMilitaryEquipment;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public MilitaryEquipment(Tanks tanks, int numberOfTanks, BMP bmp, int numberOfBmp, BTR btr, int numberOfBtr, String totalMilitaryEquipment, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.tanks = tanks;
+        this.numberOfTanks = numberOfTanks;
+        this.bmp = bmp;
+        this.numberOfBmp = numberOfBmp;
+        this.btr = btr;
+        this.numberOfBtr = numberOfBtr;
+        this.totalMilitaryEquipment = totalMilitaryEquipment;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -109,12 +116,28 @@ public class MilitaryEquipment {
         this.numberOfBtr = numberOfBtr;
     }
 
-    public int getTotalMilitaryEquipment() {
+    public String getTotalMilitaryEquipment() {
         return totalMilitaryEquipment;
     }
 
-    public void setTotalMilitaryEquipment(int totalMilitaryEquipment) {
+    public void setTotalMilitaryEquipment(String totalMilitaryEquipment) {
         this.totalMilitaryEquipment = totalMilitaryEquipment;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
     }
 
     @Override
@@ -141,6 +164,8 @@ public class MilitaryEquipment {
                 ", btr=" + btr +
                 ", numberOfBtr=" + numberOfBtr +
                 ", totalMilitaryEquipment=" + totalMilitaryEquipment +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.example.coursework.service.Tractor.Impls;
 
 import com.example.coursework.data.FakeData;
+import com.example.coursework.model.FreightCar;
 import com.example.coursework.model.Officers;
 import com.example.coursework.model.Tanks;
 import com.example.coursework.model.Tractor;
@@ -47,6 +48,13 @@ public class TractorServiceImpls implements TractorService {
         tractor.setCreated_at(LocalDateTime.now());
 
         return repository.save(tractor);
+    }
+
+    public Tractor getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

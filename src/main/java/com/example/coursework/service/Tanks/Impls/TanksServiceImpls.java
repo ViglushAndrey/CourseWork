@@ -2,6 +2,7 @@ package com.example.coursework.service.Tanks.Impls;
 
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.BMP;
+import com.example.coursework.model.FreightCar;
 import com.example.coursework.model.Tanks;
 import com.example.coursework.repository.BMP.BMPRepository;
 import com.example.coursework.repository.Tanks.TanksRepository;
@@ -44,6 +45,13 @@ public class TanksServiceImpls implements TanksService {
         tanks.setId(id);
         tanks.setCreated_at(LocalDateTime.now());
         return repository.save(tanks);
+    }
+
+    public Tanks getByName(String name){
+        return repository.findAll().stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.example.coursework.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -17,30 +18,37 @@ import java.util.Objects;
 public class TransportEquipment {
     @Id
     private String id;
+
     private FreightCar freightCar;
     private int numberOfFreightCar;
     private Tractor tractor;
     private int numberOfTractor;
-    private int totalTransportEquipment;
+    private String totalTransportEquipment;
+    private LocalDateTime created_at;
+    private LocalDateTime modify_at;
 
     public TransportEquipment() {
     }
 
-    public TransportEquipment(FreightCar freightCar, int numberOfFreightCar, Tractor tractor, int numberOfTractor, int totalTransportEquipment) {
-        this.freightCar = freightCar;
-        this.numberOfFreightCar = numberOfFreightCar;
-        this.tractor = tractor;
-        this.numberOfTractor = numberOfTractor;
-        this.totalTransportEquipment = totalTransportEquipment;
-    }
-
-    public TransportEquipment(String id, FreightCar freightCar, int numberOfFreightCar, Tractor tractor, int numberOfTractor, int totalTransportEquipment) {
+    public TransportEquipment(String id, FreightCar freightCar, int numberOfFreightCar, Tractor tractor, int numberOfTractor, String totalTransportEquipment, LocalDateTime created_at, LocalDateTime modify_at) {
         this.id = id;
         this.freightCar = freightCar;
         this.numberOfFreightCar = numberOfFreightCar;
         this.tractor = tractor;
         this.numberOfTractor = numberOfTractor;
         this.totalTransportEquipment = totalTransportEquipment;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
+    }
+
+    public TransportEquipment(FreightCar freightCar, int numberOfFreightCar, Tractor tractor, int numberOfTractor, String totalTransportEquipment, LocalDateTime created_at, LocalDateTime modify_at) {
+        this.freightCar = freightCar;
+        this.numberOfFreightCar = numberOfFreightCar;
+        this.tractor = tractor;
+        this.numberOfTractor = numberOfTractor;
+        this.totalTransportEquipment = totalTransportEquipment;
+        this.created_at = created_at;
+        this.modify_at = modify_at;
     }
 
     public String getId() {
@@ -83,12 +91,28 @@ public class TransportEquipment {
         this.numberOfTractor = numberOfTractor;
     }
 
-    public int getTotalTransportEquipment() {
+    public String getTotalTransportEquipment() {
         return totalTransportEquipment;
     }
 
-    public void setTotalTransportEquipment(int totalTransportEquipment) {
+    public void setTotalTransportEquipment(String totalTransportEquipment) {
         this.totalTransportEquipment = totalTransportEquipment;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModify_at() {
+        return modify_at;
+    }
+
+    public void setModify_at(LocalDateTime modify_at) {
+        this.modify_at = modify_at;
     }
 
     @Override
@@ -113,6 +137,8 @@ public class TransportEquipment {
                 ", tractor=" + tractor +
                 ", numberOfTractor=" + numberOfTractor +
                 ", totalTransportEquipment=" + totalTransportEquipment +
+                ", created_at=" + created_at +
+                ", modify_at=" + modify_at +
                 '}';
     }
 }

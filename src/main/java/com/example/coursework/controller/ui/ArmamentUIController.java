@@ -1,8 +1,16 @@
 package com.example.coursework.controller.ui;
-/*
+
 import com.example.coursework.forms.ArmamentForm;
 import com.example.coursework.forms.OfficerForm;
 import com.example.coursework.model.*;
+import com.example.coursework.repository.Armament.ArmamentRepository;
+import com.example.coursework.repository.Automats.AutomatsRepository;
+import com.example.coursework.repository.Grenades.GrenadesRepository;
+import com.example.coursework.repository.MachinesGuns.MachinesGunsRepository;
+import com.example.coursework.repository.MilitaryEquipment.MilitaryEquipmentRepository;
+import com.example.coursework.repository.Pistols.PistolsRepository;
+import com.example.coursework.repository.SniperRifles.SniperRiflesRepository;
+import com.example.coursework.repository.TransportEquipment.TransportEquipmentRepository;
 import com.example.coursework.service.Armament.Impls.ArmamentServiceImpls;
 import com.example.coursework.service.Automats.Impls.AutomatsServiceImpls;
 import com.example.coursework.service.Grenades.Impls.GrenadesServiceImpls;
@@ -64,106 +72,245 @@ public class ArmamentUIController {
     }
     @GetMapping(value = "create")
     public String create(Model model){
-        ArmamentForm armamentForm = new ArmamentForm();
+        ArmamentForm form = new ArmamentForm();
 
-        Map<String,String> mavsG = grenadesService.getAll().stream()
-                .collect(Collectors.toMap(Grenades::getId, Grenades::getModel));
-        model.addAttribute("mavsG", mavsG);
+        form.setGrenades("");
+        form.setPistols("");
+        form.setSniperRifles("");
+        form.setMachinesGuns("");
+        form.setAutomats("");
+        form.setMilitaryEquipment("");
+        form.setTransportEquipment("");
 
-        Map<String,String> mavsP = pistolsService.getAll().stream()
-                .collect(Collectors.toMap(Pistols::getId, Pistols::getModel));
-        model.addAttribute("mavsP", mavsP);
+        model.addAttribute("form", form);
 
-        Map<String,String> mavsSR = sniperRiflesService.getAll().stream()
-                .collect(Collectors.toMap(SniperRifles::getId, SniperRifles::getModel));
-        model.addAttribute("mavsSR", mavsSR);
+        List<String> grenades = grenadesService.getAll()
+                .stream()
+                .map(Grenades::getModel)
+                .collect(Collectors.toList());
+        model.addAttribute("grenades",grenades);
 
-        Map<String,String> mavsMG = machinesGunsService.getAll().stream()
-                .collect(Collectors.toMap(MachinesGuns::getId, MachinesGuns::getModel));
-        model.addAttribute("mavsMG", mavsMG);
+        List<String> pistols = pistolsService.getAll()
+                .stream()
+                .map(Pistols::getModel)
+                .collect(Collectors.toList());
+        model.addAttribute("pistols",pistols);
 
-        Map<String, String> mavs = automatsService.getAll().stream()
-                .collect(Collectors.toMap(Automats::getId, Automats::getModel));
-        model.addAttribute("mavs", mavs);
+        List<String> sniperRifles = sniperRiflesService.getAll()
+                .stream()
+                .map(SniperRifles::getModel)
+                .collect(Collectors.toList());
+        model.addAttribute("sniperRifles",sniperRifles);
 
-        Map<String,Integer> mavsME = militaryEquipmentService.getAll().stream()
-                .collect(Collectors.toMap(MilitaryEquipment::getId, MilitaryEquipment::getTotalMilitaryEquipment));
-        model.addAttribute("mavsME", mavsME);
+        List<String> machinesGuns = machinesGunsService.getAll()
+                .stream()
+                .map(MachinesGuns::getModel)
+                .collect(Collectors.toList());
+        model.addAttribute("machinesGuns",machinesGuns);
 
-        Map<String,Integer> mavsTE = transportEquipmentService.getAll().stream()
-                .collect(Collectors.toMap(TransportEquipment::getId, TransportEquipment::getTotalTransportEquipment));
-        model.addAttribute("mavsTE", mavsTE);
+        List<String> automats = automatsService.getAll()
+                .stream()
+                .map(Automats::getModel)
+                .collect(Collectors.toList());
+        model.addAttribute("automats",automats);
 
-        model.addAttribute("form", armamentForm);
+        List<String> militaryEquipment = militaryEquipmentService.getAll()
+                .stream()
+                .map(MilitaryEquipment::getTotalMilitaryEquipment)
+                .collect(Collectors.toList());
+        model.addAttribute("militaryEquipment",militaryEquipment);
+
+        List<String> transportEquipment = transportEquipmentService.getAll()
+                .stream()
+                .map(TransportEquipment::getTotalTransportEquipment)
+                .collect(Collectors.toList());
+        model.addAttribute("transportEquipment",transportEquipment);
+
         return "armament/armament-create";
     }
     @PostMapping(value = "create")
-    public String create(Model model, @ModelAttribute("armamentForm") ArmamentForm armamentForm){
-        Armament armament = new Armament(armamentForm.getId(), armamentForm.getGrenades()
-                , armamentForm.getPistols(), armamentForm.getSniperRifles(), armamentForm.getMachinesGuns()
-        , armamentForm.getAutomats(), armamentForm.getMilitaryEquipment(), armamentForm.getTransportEquipment());
+    public String create(Model model, @ModelAttribute("form") ArmamentForm form){
 
-        service.create(armament);
+        Armament armament =new Armament();
+        armament.setId(form.getId());
+
+        String grenadesname = form.getGrenades();
+        Grenades grenades = grenadesService.getByName(form.getGrenades());
+        armament.setGrenades(grenades);
+
+        String pistolsName = form.getPistols();
+        Pistols pistols = pistolsService.getByName(form.getPistols());
+        armament.setPistols(pistols);
+
+        String sniperRiflesName = form.getSniperRifles();
+        SniperRifles sniperRifles = sniperRiflesService.getByName(form.getSniperRifles());
+        armament.setSniperRifles(sniperRifles);
+
+        String machinesGunsname = form.getMachinesGuns();
+        MachinesGuns machinesGuns = machinesGunsService.getByName(form.getMachinesGuns());
+        armament.setMachinesGuns(machinesGuns);
+
+        String automatsname = form.getMilitaryEquipment();
+        Automats automats = automatsService.getByName(form.getAutomats());
+        armament.setAutomats(automats);
+
+        String milEq = form.getMilitaryEquipment();
+        MilitaryEquipment militaryEquipment = militaryEquipmentService.getMilitEq(form.getMilitaryEquipment());
+        armament.setMilitaryEquipment(militaryEquipment);
+
+        String transEq = form.getTransportEquipment();
+        TransportEquipment transportEquipment = transportEquipmentService.getTransEq(form.getTransportEquipment());
+        armament.setTransportEquipment(transportEquipment);
+
+               service.create(armament);
         model.addAttribute("armament", service.getAll());
         return "redirect:/ui/Armament/get/all";
-    }*/
-    /*
-    @GetMapping(value = "appdate")
-    public String appdate(Model model){
-        OfficerForm officerForm = new OfficerForm();
-        model.addAttribute("form", officerForm);
-        List<String> officersRanks  = new ArrayList(
-                Arrays.asList(OfficersRanks.values())
-        );
-        model.addAttribute("officersRanks", officersRanks);
-        return "officer/officer-appdate";
     }
-    @PostMapping(value = "appdate")
-    public String appdate( @ModelAttribute("officerForm") OfficerForm officerForm){
-        Officers officer = new Officers();
-        officer.setName(officerForm.getName());
-        officer.setbDay(LocalDate.parse(officerForm.getbDay()));
-        officer.setSpeciality(officerForm.getSpeciality());
-        officer.setDateOfAssignmentOfAnOfficerRank(LocalDate.parse(officerForm.getDateOfAssignmentOfAnOfficerRank()));
-        officer.setAwards(officerForm.getAwards());
-        officer.setOfficersRanks(OfficersRanks.valueOf(officerForm.getOfficersRanks()));
-        service.create(officer);
-        return "redirect:/ui/Officers/get/all";
-    }
-     */
-/*
+
+
+    @Autowired
+    ArmamentRepository repository;
+
+    @Autowired
+    AutomatsRepository automatsRepository;
+
+    @Autowired
+    GrenadesRepository grenadesRepository;
+
+    @Autowired
+    PistolsRepository pistolsRepository;
+
+    @Autowired
+    SniperRiflesRepository riflesRepository;
+
+    @Autowired
+    MachinesGunsRepository machinesGunsRepository;
+
+    @Autowired
+    TransportEquipmentRepository transportEquipmentRepository;
+
+    @Autowired
+    MilitaryEquipmentRepository militaryEquipmentRepository;
+
+
    @GetMapping(value = "edit/{id}")
     public String edit(Model model, @PathVariable("id") String id){
-        Officers officers = service.getById(id);
-        OfficerForm officerForm = new OfficerForm();
-        officerForm.setId(id);
-        officerForm.setName(officers.getName());
-        //officerForm.setbDay(officers.getbDay());
-        officerForm.setbDay(officers.getbDay());
-        officerForm.setSpeciality(officers.getSpeciality());
-        officerForm.setDateOfAssignmentOfAnOfficerRank(officers.getDateOfAssignmentOfAnOfficerRank());
-        officerForm.setAwards(officers.getAwards());
-        officerForm.setOfficersRanks(officers.getOfficersRanks());
-        model.addAttribute("form", officerForm);
-        List<String> officersRanks  = new ArrayList(
-                Arrays.asList(OfficersRanks.values())
-        );
-        model.addAttribute("officersRanks", officersRanks);
+
+        ArmamentForm form = new ArmamentForm();
+        form.setId(id);
+
+       String grenades = repository.findById(id)
+               .get().getGrenades().getModel();
+
+       String pistols = repository.findById(id)
+               .get().getPistols().getModel();
+
+       String sniperRifles = repository.findById(id)
+               .get().getSniperRifles().getModel();
+
+       String machinesGuns = repository.findById(id)
+               .get().getMachinesGuns().getModel();
+
+       String  automats = repository.findById(id)
+               .get().getAutomats().getModel();
+
+       String  militaryEq = repository.findById(id)
+               .get().getMilitaryEquipment().getTotalMilitaryEquipment();
+
+       String transEq = repository.findById(id)
+               .get().getTransportEquipment().getTotalTransportEquipment();
+
+       form.setGrenades(grenades);
+       form.setPistols(pistols);
+       form.setSniperRifles(sniperRifles);
+       form.setMachinesGuns(machinesGuns);
+       form.setAutomats(automats);
+       form.setMilitaryEquipment(String.valueOf(militaryEq));
+       form.setTransportEquipment(String.valueOf(transEq));
+
+       model.addAttribute("formUpd", form);
+
+       List<String> grenade = grenadesService.getAll()
+               .stream()
+               .map(Grenades::getModel)
+               .collect(Collectors.toList());
+       model.addAttribute("grenade",grenade);
+
+       List<String> pistol = pistolsService.getAll()
+               .stream()
+               .map(Pistols::getModel)
+               .collect(Collectors.toList());
+       model.addAttribute("pistol",pistol);
+
+       List<String> sniperRifle = sniperRiflesService.getAll()
+               .stream()
+               .map(SniperRifles::getModel)
+               .collect(Collectors.toList());
+       model.addAttribute("sniperRifle",sniperRifle);
+
+       List<String> machinesGun = machinesGunsService.getAll()
+               .stream()
+               .map(MachinesGuns::getModel)
+               .collect(Collectors.toList());
+       model.addAttribute("machinesGun",machinesGun);
+
+       List<String> automat = automatsService.getAll()
+               .stream()
+               .map(Automats::getModel)
+               .collect(Collectors.toList());
+       model.addAttribute("automat",automat);
+
+       List<String> militaryEquipment = militaryEquipmentService.getAll()
+               .stream()
+               .map(MilitaryEquipment::getTotalMilitaryEquipment)
+               .collect(Collectors.toList());
+       model.addAttribute("militaryEquipment",militaryEquipment);
+
+       List<String> transportEquipment = transportEquipmentService.getAll()
+               .stream()
+               .map(TransportEquipment::getTotalTransportEquipment)
+               .collect(Collectors.toList());
+       model.addAttribute("transportEquipment",transportEquipment);
+
         return "armament/armament-appdate";
     }
     @PostMapping(value = "edit/{id}")
     public String editStudent(Model model,
-                              @ModelAttribute("form") OfficerForm officerForm,
+                              @ModelAttribute("form") ArmamentForm form,
                               @PathVariable("id") String id){
-        Officers officer = new Officers();
-        officer.setId(officerForm.getId());
-        officer.setName(officerForm.getName());
-        officer.setbDay(officerForm.getbDay());
-        officer.setSpeciality(officerForm.getSpeciality());
-        officer.setDateOfAssignmentOfAnOfficerRank(officerForm.getDateOfAssignmentOfAnOfficerRank());
-        officer.setAwards(officerForm.getAwards());
-        officer.setOfficersRanks(officerForm.getOfficersRanks());
-        service.update(officer);
-        return "redirect:/ui/Officers/get/all";
+
+        Armament armament =new Armament();
+        armament.setId(form.getId());
+
+        String grenadesname = form.getGrenades();
+        Grenades grenades = grenadesService.getByName(form.getGrenades());
+        armament.setGrenades(grenades);
+
+        String pistolsName = form.getPistols();
+        Pistols pistols = pistolsService.getByName(form.getPistols());
+        armament.setPistols(pistols);
+
+        String sniperRiflesName = form.getSniperRifles();
+        SniperRifles sniperRifles = sniperRiflesService.getByName(form.getSniperRifles());
+        armament.setSniperRifles(sniperRifles);
+
+        String machinesGunsname = form.getMachinesGuns();
+        MachinesGuns machinesGuns = machinesGunsService.getByName(form.getMachinesGuns());
+        armament.setMachinesGuns(machinesGuns);
+
+        String automatsname = form.getMilitaryEquipment();
+        Automats automats = automatsService.getByName(form.getAutomats());
+        armament.setAutomats(automats);
+
+        String milEq = form.getMilitaryEquipment();
+        MilitaryEquipment militaryEquipment = militaryEquipmentService.getMilitEq(form.getMilitaryEquipment());
+        armament.setMilitaryEquipment(militaryEquipment);
+
+        String transEq = form.getTransportEquipment();
+        TransportEquipment transportEquipment = transportEquipmentService.getTransEq(form.getTransportEquipment());
+        armament.setTransportEquipment(transportEquipment);
+
+        service.update(armament);
+        return "redirect:/ui/Armament/get/all";
     }
-}*/
+}

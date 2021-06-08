@@ -3,6 +3,7 @@ package com.example.coursework.service.TemproraryDislocation.Impls;
 import com.example.coursework.data.FakeData;
 import com.example.coursework.model.Tanks;
 import com.example.coursework.model.TemporaryDislocation;
+import com.example.coursework.model.Tractor;
 import com.example.coursework.repository.Tanks.TanksRepository;
 import com.example.coursework.repository.TemproraryDislocation.TemproraryDislocationRepository;
 import com.example.coursework.service.TemproraryDislocation.Interfaces.TemproraryDislocationService;
@@ -44,6 +45,13 @@ public class TemproraryDislocationServiceImpls implements TemproraryDislocationS
         temporaryDislocation.setId(id);
         temporaryDislocation.setCreated_at(LocalDateTime.now());
         return repository.save(temporaryDislocation);
+    }
+
+    public TemporaryDislocation getTempDisloc(String tempDisloc){
+        return repository.findAll().stream()
+                .filter(item -> item.getTemporaryDislocation().equals(tempDisloc))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
